@@ -47,7 +47,7 @@ export default function StickyHeader({ onContactClick }: StickyHeaderProps) {
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
             className="fixed top-4 inset-x-0 z-50 w-full px-4 sm:px-6 lg:px-8 pointer-events-none"
           >
-            <div className="max-w-6xl mx-auto flex items-center justify-between bg-white/90 backdrop-blur-md rounded-full border border-neutral-200/80 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.12)] p-2 pointer-events-auto">
+            <div className="max-w-6xl mx-auto flex items-center justify-between bg-white/40 backdrop-blur-xl rounded-full border border-white/50 shadow-[0_12px_45px_-15px_rgba(0,0,0,0.1)] p-2 pointer-events-auto">
               
               {/* Left Profile/Availability Badge */}
               <button 
