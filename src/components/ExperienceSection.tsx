@@ -320,23 +320,10 @@ export default function ExperienceSection({ id = 'experience' }: { id?: string }
                     ID Ref: {currentSelection.uid.toUpperCase()}
                   </span>
                   
-                  {currentSelection.uid === 'exp-0' || currentSelection.uid.startsWith('edu-') ? (
-                    <button
-                      onClick={() => {
-                        const targetId = currentSelection.uid === 'exp-0' ? 'award-2' : 'award-1';
-                        setActiveCertId(targetId);
-                      }}
-                      className="px-3.5 py-1.5 bg-[#121212] hover:bg-neutral-850 text-white font-black rounded-xl text-[10px] flex items-center gap-1.5 uppercase select-none cursor-pointer transition-all active:scale-95 shadow-sm"
-                    >
-                      <Award className="w-4 h-4 text-amber-400" />
-                      {t("View Verified Certificate")}
-                    </button>
-                  ) : (
-                    <span className="px-3 py-1 bg-[#121212]/5 rounded-full text-[10px] font-bold text-[#121212] flex items-center gap-1 uppercase select-none">
-                      <Award className="w-3.5 h-3.5 text-amber-500" />
-                      Verified Credentials Digital CV
-                    </span>
-                  )}
+                  <span className="px-3 py-1 bg-[#121212]/5 rounded-full text-[10px] font-bold text-[#121212] flex items-center gap-1 uppercase select-none">
+                    <Award className="w-3.5 h-3.5 text-amber-500" />
+                    Verified Credentials Digital CV
+                  </span>
                 </div>
 
               </motion.div>
