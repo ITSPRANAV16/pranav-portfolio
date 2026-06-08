@@ -21,12 +21,24 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/contact', {
+      // Use Web3Forms for serverless frontend contact form submission
+      // Works perfectly on static sites like Vercel and GitHub Pages
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(form)
+        body: JSON.stringify({
+          // You must set this environment variable in your Vercel settings and AI Studio secrets
+          // Get a free key at https://web3forms.com
+          access_key: (import.meta as any).env.VITE_WEB3FORMS_ACCESS_KEY || "d0b57d2a-6db1-454f-862f-9ca6e1e8cde2", 
+          subject: `Portfolio Inquiry from ${form.name}`,
+          from_name: form.name,
+          email: form.email,
+          project_type: form.project,
+          message: form.message
+        })
       });
       
       const data = await response.json();
@@ -40,7 +52,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           onClose();
         }, 2500);
       } else {
-        alert(data.error || 'Failed to send message.');
+        alert(data.message || 'Failed to send message. Is your VITE_WEB3FORMS_ACCESS_KEY set?');
         setIsSubmitting(false);
       }
     } catch (error) {
