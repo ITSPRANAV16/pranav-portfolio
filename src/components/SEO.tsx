@@ -20,6 +20,43 @@ export default function SEO({
   const finalTitle = title;
   const finalDescription = description.length > 155 ? `${description.slice(0, 152)}...` : description;
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": OWNER_CONFIG.fullName || "Pranav Shahaji Patil",
+    "alternateName": OWNER_CONFIG.name || "Pranav Patil",
+    "jobTitle": OWNER_CONFIG.role || "Creative Software Developer & Android Specialist",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "AppVishwa Software Solutions Pvt. Ltd."
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Nanasaheb Mahadik Polytechnic Institute"
+    },
+    "url": url,
+    "image": `${url}${image}`,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    },
+    "description": finalDescription,
+    "sameAs": Object.values(OWNER_CONFIG.socials || {}).filter(Boolean),
+    "knowsAbout": [
+      "Android Development",
+      "Java Programming",
+      "UI/UX Design",
+      "Kotlin",
+      "SQL",
+      "Android Studio",
+      "React",
+      "Software Development",
+      "DBMS"
+    ]
+  };
+
   return (
     <Helmet>
       {/* Standard HTML Head Tags */}
@@ -29,6 +66,11 @@ export default function SEO({
       <meta name="author" content={OWNER_CONFIG.fullName} />
       <meta name="theme-color" content="#ffffff" />
       <link rel="canonical" href={url} />
+
+      {/* Schema.org Structured Data for Google's Rich Snippet & Search Knowledge Panel Algorithm */}
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
 
       {/* Open Graph (Facebook / LinkedIn) */}
       <meta property="og:type" content="website" />
