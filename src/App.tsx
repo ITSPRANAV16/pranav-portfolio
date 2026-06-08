@@ -19,6 +19,7 @@ import ContactFinalSection from './components/ContactFinalSection';
 import Footer from './components/Footer';
 import CVManagerWidget from './components/CVManagerWidget';
 import MobileQuickDock from './components/MobileQuickDock';
+import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 
 export default function App() {
@@ -269,6 +270,7 @@ export default function App() {
             )}
           </AnimatePresence>
         </motion.div>
+        <Analytics />
     </div>
   );
 }
