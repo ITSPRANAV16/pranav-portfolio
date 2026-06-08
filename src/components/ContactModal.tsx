@@ -14,20 +14,40 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
     
     setIsSubmitting(true);
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(form)
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        setForm({ name: '', email: '', project: '', message: '' });
+        setTimeout(() => {
+          setIsSubmitted(false);
+          onClose();
+        }, 2500);
+      } else {
+        alert(data.error || 'Failed to send message.');
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert('Network error. Failed to send message.');
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setForm({ name: '', email: '', project: '', message: '' });
-      setTimeout(() => {
-        setIsSubmitted(false);
-        onClose();
-      }, 2500);
-    }, 1200);
+    }
   };
 
   return (
