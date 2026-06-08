@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ExternalLink, ChevronLeft, ChevronRight, Maximize2, ZoomIn, ZoomOut } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 import { ProjectItem } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -11,24 +11,11 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const { t } = useLanguage();
-  const [activeImgIdx, setActiveImgIdx] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [zoomScale, setZoomScale] = useState(1);
-
-  // Compile unique images or valid image paths for this project safely (even if project is null)
-  const galleryImages = project ? [
-    project.images?.col2Tall,
-    project.images?.col1Top,
-    project.images?.col1Bottom,
-  ].filter(Boolean) : [];
 
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (project) {
       document.body.style.overflow = 'hidden';
-      setActiveImgIdx(0);
-      setIsLightboxOpen(false);
-      setZoomScale(1);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -36,47 +23,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       document.body.style.overflow = 'unset';
     };
   }, [project]);
-
-  // Keyboard controls for Lightbox
-  useEffect(() => {
-    if (!isLightboxOpen || !project) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setIsLightboxOpen(false);
-        setZoomScale(1);
-      } else if (e.key === 'ArrowLeft') {
-        setActiveImgIdx((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
-        setZoomScale(1);
-      } else if (e.key === 'ArrowRight') {
-        setActiveImgIdx((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
-        setZoomScale(1);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isLightboxOpen, galleryImages.length, project]);
-
-  const handlePrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setActiveImgIdx((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
-    setZoomScale(1);
-  };
-
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setActiveImgIdx((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
-    setZoomScale(1);
-  };
-
-  const handleZoomIn = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setZoomScale((prev) => Math.min(prev + 0.25, 3));
-  };
-
-  const handleZoomOut = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setZoomScale((prev) => Math.max(prev - 0.25, 0.75));
-  };
 
   if (!project) return null;
 
@@ -159,7 +105,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                         </div>
                       </div>
                     )}
+                  </div>
 
+                  {/* Right Column */}
+                  <div className="flex flex-col gap-6">
                     {/* Achievements */}
                     {project.keyAchievements && (
                       <div className="flex flex-col gap-2.5">
@@ -174,97 +123,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                          </ul>
                       </div>
                     )}
-                  </div>
-
-                  {/* Right Column */}
-                  <div className="flex flex-col gap-6">
-                     
-                     {/* Dynamic Interactive Image Gallery */}
-                     <div className="flex flex-col gap-4">
-                       <span className="text-xs uppercase tracking-widest text-[#0EA5E9] font-bold">{t("Interactive Showcase")}</span>
-                       
-                       {/* Main Display Window */}
-                       <div 
-                         onClick={() => setIsLightboxOpen(true)}
-                         className="relative w-full h-56 sm:h-64 md:h-72 bg-[#141416] rounded-[24px] border border-white/10 overflow-hidden cursor-zoom-in group select-none"
-                       >
-                         {/* Image transition wrapper */}
-                         <AnimatePresence mode="wait">
-                           <motion.img 
-                             key={activeImgIdx}
-                             src={galleryImages[activeImgIdx]} 
-                             alt={`${project.name} preview ${activeImgIdx + 1}`} 
-                             initial={{ opacity: 0, scale: 0.98 }}
-                             animate={{ opacity: 1, scale: 1 }}
-                             exit={{ opacity: 0, scale: 1.02 }}
-                             transition={{ duration: 0.25, ease: "easeInOut" }}
-                             className="w-full h-full object-cover" 
-                             loading="lazy"
-                             referrerPolicy="no-referrer"
-                           />
-                         </AnimatePresence>
-
-                         {/* Hover Controls for quick slide swapping */}
-                         {galleryImages.length > 1 && (
-                           <>
-                             <button
-                               onClick={handlePrev}
-                               className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/60 hover:bg-black/90 text-white/80 hover:text-white border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200 cursor-pointer z-10"
-                             >
-                               <ChevronLeft className="w-4 h-4" />
-                             </button>
-                             <button
-                               onClick={handleNext}
-                               className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/60 hover:bg-black/90 text-white/80 hover:text-white border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200 cursor-pointer z-10"
-                             >
-                               <ChevronRight className="w-4 h-4" />
-                             </button>
-                           </>
-                         )}
-
-                         {/* Maximize overlay */}
-                         <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-md border border-white/10 px-2.5 py-1.5 rounded-full flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none text-[10px] uppercase font-bold tracking-wider text-[#D7E2EA]">
-                           <Maximize2 className="w-3 h-3 text-[#0EA5E9]" />
-                           {t("Fullscreen")}
-                         </div>
-
-                         {/* Position indicator */}
-                         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-sm border border-white/15 px-3 py-1 rounded-full text-[10px] font-bold text-white/90 z-10">
-                           {activeImgIdx + 1} / {galleryImages.length}
-                         </div>
-                       </div>
-
-                       {/* Interactive Navigation Deck (Thumbnails) */}
-                       {galleryImages.length > 1 && (
-                         <div className="grid grid-cols-3 gap-3">
-                           {galleryImages.map((img, idx) => (
-                             <button
-                               key={idx}
-                               onClick={() => {
-                                 setActiveImgIdx(idx);
-                                 setZoomScale(1);
-                               }}
-                               className={`relative aspect-[4/3] rounded-[16px] overflow-hidden border-2 transition-all cursor-pointer ${
-                                 activeImgIdx === idx 
-                                   ? "border-[#0EA5E9] scale-[1.02] shadow-[0_0_15px_rgba(14,165,233,0.3)]" 
-                                   : "border-white/5 hover:border-white/20 select-none"
-                               }`}
-                             >
-                               <img 
-                                 src={img} 
-                                 alt={`thumbnail ${idx + 1}`} 
-                                 className="w-full h-full object-cover select-none" 
-                                 loading="lazy"
-                                 referrerPolicy="no-referrer"
-                               />
-                               {activeImgIdx === idx && (
-                                 <div className="absolute inset-0 bg-[#0EA5E9]/10 pointer-events-none" />
-                               )}
-                             </button>
-                           ))}
-                         </div>
-                       )}
-                     </div>
 
                      {/* Architecture Notes */}
                      {project.architectureNotes && (
@@ -295,128 +153,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
             </motion.div>
           </div>
-
-          {/* Lightbox / Fullscreen Overlay */}
-          <AnimatePresence>
-            {isLightboxOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-[120] bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4 md:p-8 select-none"
-              >
-                {/* Header Control Panel */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-[125] bg-black/60 p-3 rounded-2xl border border-white/5 backdrop-blur-md pointer-events-auto">
-                  <div className="flex flex-col pl-2">
-                    <span className="text-xs uppercase font-black tracking-widest text-[#0EA5E9]">{t(project.name)}</span>
-                    <span className="text-[11px] text-white/50 font-mono">Image {activeImgIdx + 1} of {galleryImages.length}</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2">
-                    {/* Zoom In */}
-                    <button 
-                      onClick={handleZoomIn}
-                      className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-colors cursor-pointer"
-                      title={t("Zoom In")}
-                    >
-                      <ZoomIn className="w-4 h-4" />
-                    </button>
-                    {/* Zoom Out */}
-                    <button 
-                      onClick={handleZoomOut}
-                      className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-colors cursor-pointer"
-                      title={t("Zoom Out")}
-                    >
-                      <ZoomOut className="w-4 h-4" />
-                    </button>
-                    {/* Reset Zoom */}
-                    {zoomScale !== 1 && (
-                      <button 
-                        onClick={(e) => { e.stopPropagation(); setZoomScale(1); }}
-                        className="text-[10px] font-bold uppercase tracking-widest px-3.5 py-2 rounded-full bg-[#0EA5E9]/25 hover:bg-[#0EA5E9]/40 border border-[#0EA5E9]/50 text-white transition-all cursor-pointer"
-                      >
-                        {t("Reset")}
-                      </button>
-                    )}
-                    
-                    <div className="w-[1px] h-6 bg-white/10 mx-1" />
-
-                    {/* Close button */}
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setIsLightboxOpen(false);
-                        setZoomScale(1);
-                      }}
-                      className="p-2.5 rounded-full bg-red-500/20 hover:bg-red-500/40 border border-red-500/40 text-red-100 transition-colors cursor-pointer"
-                      title={t("Close Fullscreen")}
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Lightbox Main Image Screen */}
-                <div className="relative w-full max-w-5xl h-full flex items-center justify-center pointer-events-none">
-                  {/* Left slide arrow */}
-                  {galleryImages.length > 1 && (
-                    <button
-                      onClick={handlePrev}
-                      className="absolute left-2 md:-left-16 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all pointer-events-auto cursor-pointer z-20"
-                    >
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                  )}
-
-                  {/* Image viewport */}
-                  <div className="w-full h-[70vh] flex items-center justify-center overflow-hidden">
-                    <motion.img
-                      key={activeImgIdx}
-                      src={galleryImages[activeImgIdx]}
-                      alt={project.name}
-                      style={{ scale: zoomScale }}
-                      drag={zoomScale > 1}
-                      dragConstraints={{ left: -300, right: 300, top: -200, bottom: 200 }}
-                      className="max-w-full max-h-full object-contain pointer-events-auto rounded-lg shadow-2xl transition-transform duration-200"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-
-                  {/* Right slide arrow */}
-                  {galleryImages.length > 1 && (
-                    <button
-                      onClick={handleNext}
-                      className="absolute right-2 md:-right-16 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all pointer-events-auto cursor-pointer z-20"
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
-                  )}
-                </div>
-
-                {/* Thumbnail list bar in lightbox at the bottom */}
-                {galleryImages.length > 1 && (
-                  <div className="absolute bottom-6 flex items-center gap-3 bg-black/60 p-2.5 rounded-2xl border border-white/5 backdrop-blur-md overflow-x-auto z-[125] max-w-[80vw]">
-                    {galleryImages.map((img, idx) => (
-                      <button
-                        key={idx}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setActiveImgIdx(idx);
-                          setZoomScale(1);
-                        }}
-                        className={`w-12 h-9 rounded-lg overflow-hidden border-2 transition-all cursor-pointer shrink-0 ${
-                          activeImgIdx === idx ? 'border-[#0EA5E9] scale-105' : 'border-transparent opacity-50 hover:opacity-100'
-                        }`}
-                      >
-                        <img src={img} className="w-full h-full object-cover select-none" referrerPolicy="no-referrer" />
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </motion.div>
-            )}
-          </AnimatePresence>
         </React.Fragment>
       )}
     </AnimatePresence>

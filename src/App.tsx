@@ -18,6 +18,7 @@ import ContactModal from './components/ContactModal';
 import ContactFinalSection from './components/ContactFinalSection';
 import Footer from './components/Footer';
 import CVManagerWidget from './components/CVManagerWidget';
+import MobileQuickDock from './components/MobileQuickDock';
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 
 export default function App() {
@@ -125,6 +126,28 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const activeEl = document.activeElement;
+      if (
+        activeEl &&
+        (activeEl.tagName === 'INPUT' ||
+         activeEl.tagName === 'TEXTAREA' ||
+         activeEl.tagName === 'SELECT' ||
+         activeEl.getAttribute('contenteditable') === 'true')
+      ) {
+        return;
+      }
+
+      if (e.key === 't' || e.key === 'T') {
+        scrollToTop();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleOpenContact = () => setIsContactOpen(true);
   const handleCloseContact = () => setIsContactOpen(false);
 
@@ -187,6 +210,9 @@ export default function App() {
 
           {/* Offline-First Admin CV Custom PDF Upload Portal */}
           <CVManagerWidget />
+
+          {/* Mobile Quick Launcher & Active Control Hub */}
+          <MobileQuickDock onContactClick={handleOpenContact} />
 
           {/* Back to Top Button */}
           <AnimatePresence>

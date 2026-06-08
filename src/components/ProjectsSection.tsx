@@ -1,4 +1,4 @@
-import React, { useState, useRef, Suspense, lazy } from "react";
+import React, { useState, useRef, useEffect, Suspense, lazy } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
 import FadeIn from "./FadeIn";
 import { ScrollReveal, ScrollRevealStagger } from "./ScrollReveal";
@@ -9,25 +9,265 @@ import { useLanguage } from "../context/LanguageContext";
 // Lazy load the heavy ProjectModal component to improve initial load performance
 const ProjectModal = lazy(() => import("./ProjectModal"));
 
-// Custom LazyImage component that renders a modern skeleton loader and smoothly fades in once loaded
-function LazyImage({ src, alt, className, ...props }: React.ImgHTMLAttributes<HTMLImageElement> & { className?: string }) {
-  const [loaded, setLoaded] = useState(false);
+// High-fidelity optimized 2D Canvas ambient particles system (Antigravity interactive constellation effect)
+function HoverParticlesCanvas({ active, mouseX, mouseY }: { active: boolean; mouseX: number; mouseY: number }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationId: number;
+    const particles: Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+    }> = [];
+
+    const numParticles = 20;
+
+    // Set initial size and positions
+    const resizeCanvas = () => {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio;
+      canvas.height = rect.height * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+    resizeCanvas();
+
+    const rect = canvas.getBoundingClientRect();
+    const width = rect.width || 350;
+    const height = rect.height || 450;
+
+    for (let i = 0; i < numParticles; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        size: Math.random() * 1.5 + 1.2,
+      });
+    }
+
+    const resizeObserver = new ResizeObserver(() => {
+      resizeCanvas();
+    });
+    resizeObserver.observe(canvas);
+
+    const draw = () => {
+      if (!canvas || !ctx) return;
+      
+      const currentWidth = canvas.width / window.devicePixelRatio;
+      const currentHeight = canvas.height / window.devicePixelRatio;
+
+      ctx.clearRect(0, 0, currentWidth, currentHeight);
+
+      // Loop through particles
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        // Idle drift
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Bounce off bounds
+        if (p.x < 0) {
+          p.x = 0;
+          p.vx *= -1;
+        } else if (p.x > currentWidth) {
+          p.x = currentWidth;
+          p.vx *= -1;
+        }
+
+        if (p.y < 0) {
+          p.y = 0;
+          p.vy *= -1;
+        } else if (p.y > currentHeight) {
+          p.y = currentHeight;
+          p.vy *= -1;
+        }
+
+        // If card is hovered, gently pull particles toward the cursor
+        if (active) {
+          const dx = mouseX - p.x;
+          const dy = mouseY - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 180) {
+            // Smooth gravitational pull formula
+            const force = (180 - dist) / 180;
+            p.x += (dx / dist) * force * 1.6;
+            p.y += (dy / dist) * force * 1.6;
+          }
+        }
+
+        // Render ambient particle
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = active ? "rgba(18, 18, 18, 0.14)" : "rgba(18, 18, 18, 0.045)";
+        ctx.fill();
+
+        // Draw connections between neighboring particles
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 80) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            // Connective lines fade out with distance and are more prominent during hover
+            const alpha = ((80 - dist) / 80) * (active ? 0.08 : 0.02);
+            ctx.strokeStyle = `rgba(18, 18, 18, ${alpha})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+
+        // Draw interactive line from particle to cursor position
+        if (active) {
+          const dx = mouseX - p.x;
+          const dy = mouseY - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouseX, mouseY);
+            const alpha = ((110 - dist) / 110) * 0.12;
+            ctx.strokeStyle = `rgba(18, 18, 18, ${alpha})`;
+            ctx.lineWidth = 0.65;
+            ctx.stroke();
+          }
+        }
+      }
+
+      animationId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      resizeObserver.disconnect();
+    };
+  }, [active, mouseX, mouseY]);
+
   return (
-    <div className="relative w-full h-full bg-neutral-100 overflow-hidden">
-      {!loaded && (
-        <div className="absolute inset-0 bg-neutral-200/50 animate-pulse flex items-center justify-center">
-          <div className="w-6 h-6 rounded-full border-2 border-black/10 border-t-black/60 animate-spin" />
-        </div>
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none z-0"
+    />
+  );
+}
+
+// Dynamic 3D interactive tilt card with high-fidelity mouse-tracking spotlight (Antigravity interactive effect)
+interface InteractiveProjectCardProps {
+  project: any;
+  onClick: any;
+  t: any;
+  key?: any;
+}
+
+function InteractiveProjectCard({ 
+  project, 
+  onClick, 
+  t 
+}: InteractiveProjectCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setCoords({ x, y });
+  };
+
+  // Build authentic geometric 3D rotational tilt ratios
+  let rotateX = 0;
+  let rotateY = 0;
+  if (isHovered && cardRef.current) {
+    const rect = cardRef.current.getBoundingClientRect();
+    const midX = rect.width / 2;
+    const midY = rect.height / 2;
+    // Maximum comfortable 3.5-degree physical perspective rotation to keep UI highly professional
+    rotateX = -((coords.y - midY) / midY) * 3.5;
+    rotateY = ((coords.x - midX) / midX) * 3.5;
+  }
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setCoords({ x: 0, y: 0 });
+      }}
+      onClick={onClick}
+      className="w-full flex flex-col group cursor-pointer bg-white/40 backdrop-blur-xl rounded-[24px] p-6 border border-white/50 hover:border-neutral-900/15 shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.06),0_10px_20px_-5px_rgba(0,0,0,0.02)] transition-all duration-300 h-full relative overflow-hidden"
+      style={{
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${isHovered ? 1.01 : 1})`,
+        transition: isHovered ? "transform 0.08s ease-out, border-color 0.3s, shadow 0.3s" : "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s, shadow 0.5s, background-color 0.5s",
+      }}
+    >
+      {/* Interactive Particles Background */}
+      <HoverParticlesCanvas active={isHovered} mouseX={coords.x} mouseY={coords.y} />
+
+      {/* Absolute Dynamic Spotlight Follower */}
+      {isHovered && (
+        <div 
+          className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-0"
+          style={{
+            background: `radial-gradient(350px circle at ${coords.x}px ${coords.y}px, rgba(18,18,18,0.035) 0%, transparent 100%)`,
+          }}
+        />
       )}
-      <img
-        src={src}
-        alt={alt}
-        onLoad={() => setLoaded(true)}
-        className={`${className} transition-opacity duration-500 ease-in-out ${loaded ? "opacity-100" : "opacity-0"}`}
-        loading="lazy"
-        referrerPolicy="no-referrer"
-        {...props}
-      />
+
+      {/* Glossy edge highlighting */}
+      {isHovered && (
+        <div 
+          className="absolute inset-0 rounded-[24px] pointer-events-none border border-white/80 z-20"
+        />
+      )}
+
+      <div className="flex flex-col h-full flex-1 z-10 pt-4">
+        {/* Category Pill Tag */}
+        <div className="mb-3">
+          <span className="px-3 py-1 bg-neutral-100/60 text-[10px] font-bold tracking-wider rounded-full text-neutral-500 border border-neutral-200/30 uppercase">
+            {t(project.category)}
+          </span>
+        </div>
+        
+        {/* Title */}
+        <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-2.5 text-[#121212] font-display transition-colors">
+          {t(project.name)}
+        </h3>
+
+        {/* Description */}
+        <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-normal mb-8 flex-1">
+          {t(project.description || "Web App")}
+        </p>
+        
+        {/* Tech Stack / Info Tags */}
+        <div className="flex flex-wrap gap-2.5 mt-auto">
+          {project.techStack?.slice(0, 4).map((tech, tIdx) => (
+            <span key={tIdx} className="bg-neutral-50/70 border border-neutral-200/50 text-neutral-600 text-[11px] font-medium px-3.5 py-1 rounded-full backdrop-blur-sm">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -152,9 +392,9 @@ export default function ProjectsSection({
       architectureNotes: ["Decoupled scanning server from main administration dashboard using REST APIs."],
       impactMetric: "Accelerated morning attendance registration by 82%.",
       images: {
-        col1Top: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop",
-        col1Bottom: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?q=80&w=1000&auto=format&fit=crop",
-        col2Tall: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop",
+        col1Top: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?q=80&w=1000&auto=format&fit=crop",
+        col1Bottom: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop",
+        col2Tall: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop",
       },
     },
   ];
@@ -235,39 +475,12 @@ export default function ProjectsSection({
           className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-16 lg:gap-y-24 w-full"
         >
           {filteredProjects.map((project, index) => (
-            <div 
-              key={project.id} 
-              className="w-full flex flex-col group cursor-pointer bg-white/75 backdrop-blur-md rounded-[24px] p-8 border border-neutral-200/80 hover:border-neutral-900/40 shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.04),0_0_25px_rgba(0,0,0,0.06)] hover:-translate-y-2.5 hover:bg-white/85 transition-all duration-500 cursor-pointer h-full relative" 
+            <InteractiveProjectCard
+              key={project.id}
+              project={project}
               onClick={() => setSelectedProject(project)}
-            >
-              <div className="flex flex-col h-full min-h-[180px]">
-                {/* Category Pill Tag */}
-                <div className="mb-4">
-                  <span className="px-3 py-1 bg-neutral-100 text-[10px] font-bold tracking-wider rounded-full text-neutral-500 border border-neutral-200/40 uppercase">
-                    {t(project.category)}
-                  </span>
-                </div>
-                
-                {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-2.5 text-[#121212] font-display transition-colors">
-                  {t(project.name)}
-                </h3>
-
-                {/* Description */}
-                <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-normal mb-8 flex-1">
-                  {t(project.description || "Web App")}
-                </p>
-                
-                {/* Tech Stack / Info Tags */}
-                <div className="flex flex-wrap gap-2.5 mt-auto">
-                  {project.techStack?.slice(0, 4).map((tech, tIdx) => (
-                    <span key={tIdx} className="bg-neutral-50 border border-neutral-200/60 text-neutral-600 text-[11px] font-medium px-3.5 py-1 rounded-full">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+              t={t}
+            />
           ))}
         </ScrollRevealStagger>
 

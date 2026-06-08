@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FileText, ArrowRight, Menu, X, ExternalLink } from 'lucide-react';
+import { 
+  FileText, 
+  ArrowRight, 
+  Menu, 
+  X, 
+  ExternalLink,
+  User,
+  Briefcase,
+  Cpu,
+  Compass,
+  Layers,
+  Trophy,
+  ChevronRight
+} from 'lucide-react';
 import { OWNER_CONFIG } from '../config/owner';
 import { handleCVDownload } from '../utils/cvStore';
 import { useLanguage } from '../context/LanguageContext';
@@ -47,20 +60,24 @@ export default function StickyHeader({ onContactClick }: StickyHeaderProps) {
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
             className="fixed top-4 inset-x-0 z-50 w-full px-4 sm:px-6 lg:px-8 pointer-events-none"
           >
-            <div className="max-w-6xl mx-auto flex items-center justify-between bg-white/40 backdrop-blur-xl rounded-full border border-white/50 shadow-[0_12px_45px_-15px_rgba(0,0,0,0.1)] p-2 pointer-events-auto">
+            <div className="max-w-6xl mx-auto flex items-center justify-between bg-white/70 md:bg-white/45 backdrop-blur-2xl rounded-full border border-white/70 shadow-[0_12px_40px_-5px_rgba(0,0,0,0.08)] p-2 pointer-events-auto transition-all duration-300 hover:border-white/90">
               
               {/* Left Profile/Availability Badge */}
               <button 
                 onClick={() => handleScrollTo('hero')}
-                className="flex items-center gap-2 pl-3 group cursor-pointer text-left"
+                className="flex items-center gap-2.5 pl-2.5 group cursor-pointer text-left focus:outline-none"
               >
-                <div className="relative w-8 h-8 rounded-full bg-neutral-900 flex items-center justify-center text-white font-bold text-xs shadow-inner">
+                <div className="relative w-8 h-8 shrink-0 rounded-full bg-gradient-to-br from-neutral-800 to-black hover:scale-105 active:scale-95 transition-transform flex items-center justify-center text-white font-sans font-black text-xs shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                   P
-                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-white animate-pulse" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white animate-pulse" />
                 </div>
-                <div className="hidden sm:block">
-                  <p className="text-xs font-black text-neutral-900 leading-none">{t('Pranav Patil').toUpperCase()}</p>
-                  <p className="text-[9px] font-mono text-neutral-450 mt-0.5 uppercase tracking-wider font-bold">{t('Android Specialist')}</p>
+                <div className="flex flex-col">
+                  <p className="text-[11px] sm:text-xs font-black text-neutral-900 leading-none tracking-tight group-hover:text-sky-600 transition-colors uppercase">
+                    {t('Pranav Patil')}
+                  </p>
+                  <p className="text-[8px] sm:text-[9px] font-mono text-neutral-500 font-bold tracking-wider uppercase mt-1 leading-none">
+                    {t('Android Specialist')}
+                  </p>
                 </div>
               </button>
 
@@ -116,18 +133,25 @@ export default function StickyHeader({ onContactClick }: StickyHeaderProps) {
                 {/* Let's Talk CTA */}
                 <button
                   onClick={onContactClick}
-                  className="hidden sm:flex bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-200 rounded-full py-2 px-4 text-xs font-bold items-center gap-1.5 transition-colors cursor-pointer"
+                  className="hidden sm:flex bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-200 rounded-full py-2 px-4 text-xs font-bold items-center gap-1.5 transition-all cursor-pointer"
                 >
                   <span>{t("Let's Talk")}</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </button>
 
-                {/* Mobile Menu Toggle */}
+                {/* Mobile Menu Toggle Pill Component */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="md:hidden p-2 rounded-full hover:bg-neutral-100 text-neutral-800 transition-colors cursor-pointer"
+                  className="md:hidden flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-neutral-900 hover:bg-black text-white font-bold text-[10px] uppercase tracking-wider active:scale-95 transition-all cursor-pointer shadow-md"
                 >
-                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                  <span className="font-sans font-black tracking-widest text-[9px]">
+                    {mobileMenuOpen ? t('CLOSE') : t('MENU')}
+                  </span>
+                  {mobileMenuOpen ? (
+                    <X className="w-3.5 h-3.5 text-sky-400" />
+                  ) : (
+                    <Menu className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+                  )}
                 </button>
               </div>
 
@@ -140,53 +164,158 @@ export default function StickyHeader({ onContactClick }: StickyHeaderProps) {
       <AnimatePresence>
         {visible && mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed top-20 inset-x-4 z-40 md:hidden bg-white/95 rounded-3xl border border-neutral-200/80 p-6 shadow-2xl backdrop-blur-lg"
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 350, damping: 28 }}
+            className="fixed top-20 inset-x-4 z-40 md:hidden bg-white/85 backdrop-blur-3xl rounded-[32px] border border-white/60 p-5 shadow-[0_24px_50px_-15px_rgba(0,0,0,0.18)]"
           >
-            <div className="flex flex-col gap-4 font-bold text-sm text-neutral-800">
-              <button onClick={() => handleScrollTo('hero')} className="text-left py-2 border-b border-neutral-100 flex justify-between items-center text-[#0ea5e9]">
-                <span>{t('Who I Am')}</span>
-                <span className="text-xs text-neutral-400">01</span>
+            {/* Top Indicator Badge */}
+            <div className="flex items-center justify-between border-b border-neutral-900/5 pb-3 mb-3">
+              <span className="text-[9px] font-mono text-neutral-500 font-extrabold tracking-widest uppercase">
+                {t('Navigation System')}
+              </span>
+              <span className="flex items-center gap-1.5 px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[8px] font-bold rounded-full uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                {t('Always Online')}
+              </span>
+            </div>
+
+            <div className="flex flex-col gap-1.5 font-sans font-bold text-sm text-neutral-800">
+              
+              {/* Item 1 */}
+              <button 
+                onClick={() => handleScrollTo('hero')} 
+                className="text-left py-2.5 px-3 rounded-2xl hover:bg-neutral-900/5 active:bg-neutral-900/10 transition-all flex items-center justify-between text-sky-600 border border-transparent cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-600">
+                    <User className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs font-black tracking-wide uppercase">{t('Who I Am')}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-neutral-400">
+                  <span className="text-[10px] font-mono font-bold">01</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
               </button>
-              <button onClick={() => handleScrollTo('projects')} className="text-left py-2 border-b border-neutral-100 flex justify-between items-center">
-                <span>{t('Featured Work')}</span>
-                <span className="text-xs text-neutral-400">02</span>
+
+              {/* Item 2 */}
+              <button 
+                onClick={() => handleScrollTo('projects')} 
+                className="text-left py-2.5 px-3 rounded-2xl hover:bg-neutral-900/5 active:bg-neutral-900/10 transition-all flex items-center justify-between text-neutral-800 border border-transparent cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+                    <Briefcase className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs font-black tracking-wide uppercase">{t('Featured Work')}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-neutral-400">
+                  <span className="text-[10px] font-mono font-bold">02</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
               </button>
-              <button onClick={() => handleScrollTo('services')} className="text-left py-2 border-b border-neutral-100 flex justify-between items-center">
-                <span>{t('What I Build')}</span>
-                <span className="text-xs text-neutral-400">03</span>
+
+              {/* Item 3 */}
+              <button 
+                onClick={() => handleScrollTo('services')} 
+                className="text-left py-2.5 px-3 rounded-2xl hover:bg-neutral-900/5 active:bg-neutral-900/10 transition-all flex items-center justify-between text-neutral-800 border border-transparent cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-600">
+                    <Cpu className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs font-black tracking-wide uppercase">{t('What I Build')}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-neutral-400">
+                  <span className="text-[10px] font-mono font-bold">03</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
               </button>
-              <button onClick={() => handleScrollTo('approach')} className="text-left py-2 border-b border-neutral-100 flex justify-between items-center">
-                <span>{t('Our Approach')}</span>
-                <span className="text-xs text-neutral-400">04</span>
+
+              {/* Item 4 */}
+              <button 
+                onClick={() => handleScrollTo('approach')} 
+                className="text-left py-2.5 px-3 rounded-2xl hover:bg-neutral-900/5 active:bg-neutral-900/10 transition-all flex items-center justify-between text-neutral-800 border border-transparent cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600">
+                    <Compass className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs font-black tracking-wide uppercase">{t('Approach')}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-neutral-400">
+                  <span className="text-[10px] font-mono font-bold">04</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
               </button>
-              <button onClick={() => handleScrollTo('skills')} className="text-left py-2 border-b border-neutral-100 flex justify-between items-center">
-                <span>{t('Technical Skills')}</span>
-                <span className="text-xs text-neutral-400">05</span>
+
+              {/* Item 5 */}
+              <button 
+                onClick={() => handleScrollTo('skills')} 
+                className="text-left py-2.5 px-3 rounded-2xl hover:bg-neutral-900/5 active:bg-neutral-900/10 transition-all flex items-center justify-between text-neutral-800 border border-transparent cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-600">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs font-black tracking-wide uppercase">{t('Skills')}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-neutral-400">
+                  <span className="text-[10px] font-mono font-bold">05</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
               </button>
-              <button onClick={() => handleScrollTo('experience')} className="text-left py-2 border-b border-neutral-100 flex justify-between items-center">
-                <span>{t('Experience')}</span>
-                <span className="text-xs text-neutral-400">06</span>
+
+              {/* Item 6 */}
+              <button 
+                onClick={() => handleScrollTo('experience')} 
+                className="text-left py-2.5 px-3 rounded-2xl hover:bg-neutral-900/5 active:bg-neutral-900/10 transition-all flex items-center justify-between text-neutral-800 border border-transparent cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600">
+                    <Briefcase className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs font-black tracking-wide uppercase">{t('Experience')}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-neutral-400">
+                  <span className="text-[10px] font-mono font-bold">06</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
               </button>
-              <button onClick={() => { setMobileMenuOpen(false); handleScrollTo('awards'); }} className="text-left py-2 border-b border-neutral-100 flex justify-between items-center">
-                <span>{t('Awards')}</span>
-                <span className="text-xs text-neutral-400">07</span>
+
+              {/* Item 7 */}
+              <button 
+                onClick={() => { setMobileMenuOpen(false); handleScrollTo('awards'); }} 
+                className="text-left py-2.5 px-3 rounded-2xl hover:bg-neutral-900/5 active:bg-neutral-900/10 transition-all flex items-center justify-between text-neutral-800 border border-transparent cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+                    <Trophy className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs font-black tracking-wide uppercase">{t('Awards')}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-neutral-400">
+                  <span className="text-[10px] font-mono font-bold">07</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
               </button>
               
-              <div className="pt-4 flex flex-col gap-2.5">
+              {/* Bottom Custom CTA */}
+              <div className="pt-2 flex flex-col gap-2">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onContactClick();
                   }}
-                  className="w-full justify-center bg-[#121212] text-white hover:bg-neutral-800 rounded-2xl py-3 text-xs font-bold flex items-center gap-1.5 transition-colors shadow-md cursor-pointer"
+                  className="w-full justify-center bg-neutral-900 hover:bg-black text-white hover:scale-[1.01] rounded-2xl py-3 px-4 text-xs font-sans font-black uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
                 >
                   <span>{t("Let's Talk")}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-sky-400" />
                 </button>
               </div>
+
             </div>
           </motion.div>
         )}

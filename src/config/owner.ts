@@ -100,41 +100,41 @@ const DEFAULT_CONFIG = {
     {
       id: 's1',
       number: '01',
-      name: 'Android Custom Apps',
-      description: 'End-to-end native Android apps developed with Java/Kotlin, customized offline caching (Room DB), API sync (Retrofit), and modern Material Design 3 interfaces.',
-      price: '₹15,000+',
+      name: 'Academic Project Delivery',
+      description: 'End-to-end software development and documentation for Degree, Diploma, BCA, MCA, and Engineering (CS/IT). Providing fully functional source code, database architectures, and report/synopsis guidelines.',
+      price: '₹12,000+',
       images: [
-        'https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1000&auto=format&fit=crop', // Android / Mobile dev code
-        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop' // Modern device layout
+        'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000&auto=format&fit=crop', // Project planning/academic
+        'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000&auto=format&fit=crop' // Student learning/compiling
       ]
     },
     {
       id: 's2',
       number: '02',
-      name: 'UI/UX Design & Prototyping',
-      description: 'Creating professional Figma mockups, user flow blueprints, wireframes, and digital interactive prototypes designed to maximize engagement and product clarity.',
-      price: '₹8,000+',
-      images: [
-        'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop', // Figma / UI design
-        'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop' // UX Wireframes
-      ]
-    },
-    {
-      id: 's3',
-      number: '03',
-      name: 'Full-Stack Web Architectures',
-      description: 'Designing fully responsive frontends with HTML/CSS/JS alongside custom database interactions (databases, DBMS) or lightweight backends.',
-      price: '₹12,000+',
+      name: 'Custom Web Applications',
+      description: 'Designing and executing modern responsive web portals, custom student evaluation systems, dashboard frameworks, and client-server architectures built with React, HTML5/CSS, or PHP.',
+      price: '₹10,500+',
       images: [
         'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1000&auto=format&fit=crop', // React Code
         'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1000&auto=format&fit=crop' // HTML / CSS IDE
       ]
     },
     {
+      id: 's3',
+      number: '03',
+      name: 'Native Mobile Apps',
+      description: 'High-performance native Android applications coded in Core Java and Kotlin, featuring local Room database caching, background service alerts, and polished Material 3 interfaces.',
+      price: '₹14,000+',
+      images: [
+        'https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1000&auto=format&fit=crop', // Mobile dev code
+        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop' // Modern device layout
+      ]
+    },
+    {
       id: 's4',
       number: '04',
-      name: 'Embedded SQLite / DBMS Systems',
-      description: 'Designing highly optimized local persistent storage architectures, data sanitization pipelines, and database relations for desktop or android platforms.',
+      name: 'DBMS & Database Systems',
+      description: 'Designing highly optimized relational SQLite, Room, or XAMPP MySQL structures. Modeling complete ER diagrams, table schemas, and custom SQL queries for robust local search operations.',
       price: '₹6,000+',
       images: [
         'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop', // Databases / Servers
@@ -144,12 +144,12 @@ const DEFAULT_CONFIG = {
     {
       id: 's5',
       number: '05',
-      name: 'API Integrations & JWT Security',
-      description: 'Linking systems securely through remote REST API engines with robust client authorization (JSON Web Tokens), OkHttp interceptors, and data stream parsing.',
-      price: '₹9,500+',
+      name: 'Mentorship & Project Setup',
+      description: 'Dedicated guidance from compiler setup to presentation ready status. Explaining source code line-by-line and conducting mock presentation checks to help you ace your Viva and major project evaluations.',
+      price: '₹5,000+',
       images: [
-        'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1000&auto=format&fit=crop', // JSON Code
-        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop' // Security Matrix / JWT
+        'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1000&auto=format&fit=crop', // Student study / laptop
+        'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1000&auto=format&fit=crop' // IT mentorship/guidance
       ]
     }
   ],
