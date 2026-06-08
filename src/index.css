@@ -9,9 +9,7 @@
 
 
 /* Global Reset & Body Background Constraints */
-html,
-body,
-#root {
+html {
   background-color: #F4F4F4 !important;
   font-family: 'Outfit', sans-serif !important;
   margin: 0;
@@ -19,6 +17,21 @@ body,
   box-sizing: border-box;
   color: #121212;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #F4F4F4 !important;
+  font-family: 'Outfit', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  color: #121212;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 *,

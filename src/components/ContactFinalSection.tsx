@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { Github, Instagram, Linkedin, Briefcase, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Briefcase, ArrowUpRight } from 'lucide-react';
 import { OWNER_CONFIG } from '../config/owner';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -109,7 +109,6 @@ export default function ContactFinalSection({ onContactClick }: { onContactClick
           {/* Social Pills */}
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <SocialPill icon={<Briefcase className="w-4 h-4" />} label={t("Naukri Profile")} href={OWNER_CONFIG.socials.naukri || OWNER_CONFIG.socials.dribbble} variants={itemVariants} />
-            <SocialPill icon={<Instagram className="w-4 h-4" />} label={t("Instagram")} href={OWNER_CONFIG.socials.instagram} variants={itemVariants} />
             <SocialPill icon={<Linkedin className="w-4 h-4" />} label={t("LinkedIn")} href={OWNER_CONFIG.socials.linkedin} variants={itemVariants} />
             <SocialPill icon={<Github className="w-4 h-4" />} label={t("GitHub")} href={OWNER_CONFIG.socials.github} variants={itemVariants} />
           </div>

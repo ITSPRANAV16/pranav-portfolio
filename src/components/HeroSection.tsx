@@ -48,7 +48,7 @@ export default function HeroSection({ onContactClick, id = 'hero' }: HeroSection
   return (
     <section
       id={id}
-      className="min-h-screen md:h-screen flex flex-col justify-between overflow-x-hidden w-full relative bg-[#F4F4F4] pt-4 md:pt-8 pb-16 md:pb-0"
+      className="min-h-screen md:min-h-screen flex flex-col justify-between overflow-x-hidden w-full relative bg-[#F4F4F4] pt-4 md:pt-8 pb-16 md:pb-12"
     >
       {/* 1. Navbar */}
       <FadeIn delay={0} y={-20} duration={0.8} as="nav" className="flex flex-row justify-between items-center w-full z-30 gap-4 px-4 md:px-8 lg:px-12">

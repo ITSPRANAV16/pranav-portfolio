@@ -177,7 +177,6 @@ const DEFAULT_CONFIG = {
   socials: {
     github: 'https://github.com',
     linkedin: 'https://linkedin.com',
-    instagram: 'https://instagram.com',
     naukri: 'https://www.naukri.com'
   }
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Github, Linkedin, Instagram, ArrowUp, Briefcase } from 'lucide-react';
+import { Github, Linkedin, ArrowUp, Briefcase } from 'lucide-react';
 import { OWNER_CONFIG } from '../config/owner';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -123,15 +123,6 @@ export default function Footer() {
                 className="w-10 h-10 rounded-xl bg-white border border-neutral-200 text-neutral-600 flex items-center justify-center hover:bg-[#0077B5] hover:border-[#0077B5] hover:text-white hover:scale-105 active:scale-95 transition-all shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
               >
                 <Linkedin className="w-4.5 h-4.5" />
-              </a>
-              <a
-                href={OWNER_CONFIG.socials.instagram}
-                target="_blank"
-                rel="noreferrer"
-                title="Instagram"
-                className="w-10 h-10 rounded-xl bg-white border border-neutral-200 text-neutral-600 flex items-center justify-center hover:bg-[#E1306C] hover:border-[#E1306C] hover:text-white hover:scale-105 active:scale-95 transition-all shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
-              >
-                <Instagram className="w-4.5 h-4.5" />
               </a>
               <a
                 href={OWNER_CONFIG.socials.naukri || OWNER_CONFIG.socials.dribbble}

@@ -75,7 +75,6 @@ export default function CVManagerWidget() {
   const [socials, setSocials] = useState({
     github: '',
     linkedin: '',
-    instagram: '',
     naukri: ''
   });
 
@@ -130,7 +129,6 @@ export default function CVManagerWidget() {
       setSocials({
         github: raw.socials?.github || '',
         linkedin: raw.socials?.linkedin || '',
-        instagram: raw.socials?.instagram || '',
         naukri: raw.socials?.naukri || raw.socials?.dribbble || ''
       });
 
@@ -684,19 +682,6 @@ export default function CVManagerWidget() {
                                 value={socials.linkedin} 
                                 placeholder="http://linkedin.com/..."
                                 onChange={(e) => setSocials({ ...socials, linkedin: e.target.value })}
-                                className="w-full bg-[#121212] border border-white/10 rounded-xl px-4.5 py-2.5 font-sans text-xs focus:outline-none focus:border-emerald-400/55 transition-colors text-white"
-                              />
-                            </div>
-                          </div>
-
-                          <div>
-                            <label className="block text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-1.5">Instagram Profile Link</label>
-                            <div className="flex gap-2">
-                              <input 
-                                type="text" 
-                                value={socials.instagram} 
-                                placeholder="http://instagram.com/..."
-                                onChange={(e) => setSocials({ ...socials, instagram: e.target.value })}
                                 className="w-full bg-[#121212] border border-white/10 rounded-xl px-4.5 py-2.5 font-sans text-xs focus:outline-none focus:border-emerald-400/55 transition-colors text-white"
                               />
                             </div>
