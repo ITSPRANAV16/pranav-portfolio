@@ -87,6 +87,11 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
       <meta name="twitter:creator" content="@pranav_patil" />
 
+      {/* Dynamic Google Site Verification meta tag */}
+      {localStorage.getItem('google_site_verification') && (
+        <meta name="google-site-verification" content={localStorage.getItem('google_site_verification') || ''} />
+      )}
+
       {/* Search Console Verification or Google Crawler hints */}
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />

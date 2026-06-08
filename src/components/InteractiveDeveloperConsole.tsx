@@ -15,11 +15,22 @@ import {
 } from 'lucide-react';
 
 export default function InteractiveDeveloperConsole() {
-  const [activeTab, setActiveTab] = useState<'editor' | 'terminal' | 'architecture'>('editor');
+  const [activeTab, setActiveTab] = useState<'editor' | 'terminal' | 'architecture' | 'google'>('editor');
   const [isCompiling, setIsCompiling] = useState(false);
   const [compileProgress, setCompileProgress] = useState(0);
   const [compileSuccess, setCompileSuccess] = useState(false);
   const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
+  const [gscToken, setGscToken] = useState(() => localStorage.getItem('google_site_verification') || '');
+  const [savedSuccess, setSavedSuccess] = useState(false);
+
+  // Handle saving verification details
+  const handleSaveToken = (e: React.FormEvent) => {
+    e.preventDefault();
+    localStorage.setItem('google_site_verification', gscToken.trim());
+    window.dispatchEvent(new Event('portfolio_settings_changed')); // Refresh SEO tags
+    setSavedSuccess(true);
+    setTimeout(() => setSavedSuccess(false), 3000);
+  };
 
   // Simulation of compilation script logs
   const rawLogs = [
@@ -174,7 +185,7 @@ export default function InteractiveDeveloperConsole() {
           </button>
           <button
             onClick={() => setActiveTab('architecture')}
-            className={`px-4.5 py-2.5 flex items-center gap-2 cursor-pointer transition-all ${
+            className={`px-4.5 py-2.5 flex items-center gap-2 border-r border-white/5 cursor-pointer transition-all ${
               activeTab === 'architecture'
                 ? 'bg-[#0C0C0C] text-white border-b-2 border-b-[#0EA5E9]'
                 : 'text-[#D7E2EA]/40 hover:text-[#D7E2EA]/75'
@@ -182,6 +193,17 @@ export default function InteractiveDeveloperConsole() {
           >
             <Layers className="w-3.5 h-3.5 text-[#0EA5E9]" />
             Arch.sys
+          </button>
+          <button
+            onClick={() => setActiveTab('google')}
+            className={`px-4.5 py-2.5 flex items-center gap-2 cursor-pointer transition-all ${
+              activeTab === 'google'
+                ? 'bg-[#0C0C0C] text-[#38BDF8] border-b-2 border-b-[#0EA5E9]'
+                : 'text-[#D7E2EA]/40 hover:text-[#D7E2EA]/75'
+            }`}
+          >
+            <Globe className="w-3.5 h-3.5 text-[#38BDF8] animate-pulse" />
+            GSC Verify
           </button>
         </div>
 
@@ -284,6 +306,77 @@ export default function InteractiveDeveloperConsole() {
                     <p className="text-[10px] text-[#D7E2EA]/40 font-light mt-0.5">Room database framework / Persistent SQLite relational queries</p>
                   </div>
                   <span className="text-[9px] uppercase font-bold tracking-widest text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Durable</span>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Google Search Console Verification Panel */}
+            {activeTab === 'google' && (
+              <motion.div
+                key="google-screen"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.15 }}
+                className="flex flex-col gap-4 text-left"
+              >
+                <div className="border border-indigo-500/20 bg-indigo-550/5 bg-indigo-500/5 rounded-xl p-3.5 flex flex-col gap-2">
+                  <div className="flex items-center gap-2 text-indigo-400 font-bold text-xs uppercase tracking-wider">
+                    <Globe className="w-4 h-4 shrink-0 animate-spin" style={{ animationDuration: '4s' }} />
+                    Google Search Console Verify
+                  </div>
+                  <p className="text-[11px] text-[#D7E2EA]/70 leading-normal">
+                    तुमची वेबसाईट गुगलच्या प्रसिद्ध <strong className="text-white">Search Index</strong> आणि <strong className="text-white">Google Search Result</strong> मध्ये आणण्यासाठी खालचे पर्याय वापरा:
+                  </p>
+                </div>
+
+                <form onSubmit={handleSaveToken} className="flex flex-col gap-3.5">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] uppercase font-bold tracking-widest text-slate-400 font-sans">
+                      HTML Tag Method (गुगल व्हेरिफिकेशन कोड):
+                    </label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="उदा. google8f395781a7b18cb4 वा meta profile code"
+                        value={gscToken}
+                        onChange={(e) => {
+                          setGscToken(e.target.value);
+                          setSavedSuccess(false);
+                        }}
+                        className="flex-1 bg-[#161616] border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-[#0EA5E9] transition-colors"
+                      />
+                      <button
+                        type="submit"
+                        className="bg-[#0EA5E9] text-white font-sans text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-lg cursor-pointer hover:bg-[#0EA5E9]/90 active:scale-98 transition-all shrink-0"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  </div>
+
+                  {savedSuccess && (
+                    <div className="text-green-400 text-[10px] font-bold flex items-center gap-1.5 font-sans animate-bounce">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      Yuvraaj applied! HTML Meta index tag updated in build configuration dynamically.
+                    </div>
+                  )}
+                </form>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1 text-[10px]">
+                  <div className="border border-white/5 bg-[#121212]/30 p-2.5 rounded-lg flex flex-col gap-1">
+                    <span className="font-bold text-[#D7E2EA] text-[11px] uppercase tracking-wide">पर्याय १ (HTML Tag):</span>
+                    <p className="text-[#D7E2EA]/50 leading-relaxed">
+                      तुमचा गुगलचा <code className="text-[#0EA5E9]">google-site-verification</code> कोड वरील इनपुट मध्ये टाकून `Apply` दाबा. यामुळे आपोआप वेबसाईटच्या हेड (<code className="text-pink-400">&lt;head&gt;</code>) मध्ये मेटा टॅग समाविष्ट होईल.
+                    </p>
+                  </div>
+
+                  <div className="border border-white/5 bg-[#121212]/30 p-2.5 rounded-lg flex flex-col gap-1">
+                    <span className="font-bold text-[#D7E2EA] text-[11px] uppercase tracking-wide">पर्याय २ (HTML File Upload):</span>
+                    <p className="text-[#D7E2EA]/50 leading-relaxed">
+                      गुगलकडून मिळालेली फाईल (उदा. <code className="text-[#0EA5E9]">googlef1a2b3.html</code>) आपल्याला आपल्या <code className="text-teal-400">public/</code> फोल्डर मध्ये ठेवायची आहे. तुम्ही मला फक्त चॅटमध्ये त्या फाईलचे नाव सांगा, मी ती लगेच बनवून देईल!
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             )}
