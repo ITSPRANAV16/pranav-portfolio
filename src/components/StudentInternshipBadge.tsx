@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { GraduationCap, Briefcase, Sparkles, MapPin, X, ArrowUpRight, FileDown, CheckCircle2, Code2 } from 'lucide-react';
+import { GraduationCap, Briefcase, Sparkles, MapPin, X, ArrowUpRight, CheckCircle2, Code2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { handleCVDownload } from '../utils/cvStore';
 
 interface StudentInternshipBadgeProps {
   onContactClick: () => void;
@@ -197,15 +196,7 @@ export default function StudentInternshipBadge({ onContactClick, className = '' 
               </div>
 
               {/* Modal Footer Actions */}
-              <div className="p-4 sm:p-5 bg-gray-50 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <button
-                  onClick={() => handleCVDownload()}
-                  className="w-full sm:w-auto px-5 py-2.5 bg-white hover:bg-gray-100 text-gray-900 border border-gray-200 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-sm"
-                >
-                  <FileDown className="w-4 h-4 text-gray-600" />
-                  {language === 'mr' ? 'रेझ्युमे डाउनलोड करा' : 'Download CV (PDF)'}
-                </button>
-
+              <div className="p-4 sm:p-5 bg-gray-50 border-t border-gray-100 flex items-center justify-end">
                 <button
                   onClick={() => {
                     setIsOpen(false);
