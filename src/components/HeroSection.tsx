@@ -5,6 +5,7 @@ import { OWNER_CONFIG } from '../config/owner';
 import { FileText } from 'lucide-react';
 import { handleCVDownload } from '../utils/cvStore';
 import { useLanguage } from '../context/LanguageContext';
+import StudentInternshipBadge from './StudentInternshipBadge';
 
 interface HeroSectionProps {
   onContactClick: () => void;
@@ -155,7 +156,11 @@ export default function HeroSection({ onContactClick, id = 'hero' }: HeroSection
       <div className="relative md:absolute md:bottom-12 lg:bottom-20 md:left-0 w-full px-4 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between items-center md:items-end z-40 pointer-events-none mt-10 md:mt-0 gap-8 md:gap-0 pb-6 md:pb-0">
         
         {/* Left Info */}
-        <FadeIn delay={0.6} y={20} duration={0.8} className="pointer-events-auto bg-white md:bg-transparent border border-gray-100 md:border-transparent p-6 md:p-0 rounded-3xl shadow-sm md:shadow-none w-full max-w-[440px]">
+        <FadeIn delay={0.6} y={20} duration={0.8} className="pointer-events-auto bg-white md:bg-transparent border border-gray-100 md:border-transparent p-6 md:p-0 rounded-3xl shadow-sm md:shadow-none w-full max-w-[460px]">
+          <div className="mb-3.5">
+            <StudentInternshipBadge onContactClick={onContactClick} />
+          </div>
+
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2.5 md:mb-3 tracking-tight text-[#121212]">
             {language === 'mr' ? 'अँड्रॉइड प्रमुख आणि डिझायनर' : 'Android Dev &\nCreative Engineer'}
           </h2>

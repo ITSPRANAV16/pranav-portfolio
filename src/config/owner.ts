@@ -7,18 +7,18 @@ const DEFAULT_CONFIG = {
   location: 'Pune, India',
   role: 'Creative Software Developer & B.Tech Undergrad (ECE)',
   tagline: 'creative developer passionate about building next-gen android apps, exploring electronics & computing systems, and crafting responsive web interfaces.',
-  bio: "Completed Diploma in Computer Engineering and currently pursuing B.Tech in Electronics & Computer Engineering (Direct Second Year) at Dr. D.Y. Patil Technical Campus, Varale, Pune. Skilled in Java, Android app development, and UI/UX prototyping. Eager to learn, innovate, and contribute to the tech industry, backed by a successful 3-month internship at AppVishwa Software Solutions Pvt. Ltd and real-world project deliveries.",
+  bio: "Completed Diploma in Computer Engineering and currently pursuing B.Tech in Electronics & Computer Engineering at Dr. D.Y. Patil Technical Campus, Varale, Pune. Skilled in Java, Android app development, and UI/UX prototyping. Eager to learn, innovate, and contribute to the tech industry, backed by a successful 3-month internship at AppVishwa Software Solutions Pvt. Ltd and real-world project deliveries.",
   cvUrl: 'https://drive.google.com/file/d/1ONsNm81ajVR8-SQvSWJ0cwEhKIhct__Q/view?usp=drive_link',
   
   education: [
     {
       institution: 'Dr. D.Y. Patil Technical Campus, Varale',
       university: 'Savitribai Phule Pune University (SPPU)',
-      degree: 'B.Tech in Electronics & Computer Engineering (Direct Second Year)',
+      degree: 'B.Tech in Electronics & Computer Engineering',
       duration: '2026 - 2029 (Currently Pursuing)',
       location: 'Varale, Talegaon, Pune, Maharashtra, India',
       highlights: [
-        'Affiliated to Savitribai Phule Pune University (SPPU) — newly enrolled Direct Second Year (DSE) undergraduate.',
+        'Affiliated to Savitribai Phule Pune University (SPPU) — undergraduate student in Electronics & Computer Engineering.',
         'Embarking on the B.Tech journey in Electronics and Computer Engineering, eager to explore computing hardware, embedded IoT systems, and scalable software architectures.'
       ]
     },
