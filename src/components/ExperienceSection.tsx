@@ -33,14 +33,14 @@ export default function ExperienceSection({ id = 'experience' }: { id?: string }
       })),
       highlights: [],
     })),
-    ...educations.map((edu, idx) => ({
+    ...educations.map((edu: any, idx) => ({
       uid: `edu-${idx}`,
       type: 'education' as const,
       title: t(edu.degree),
       subtitle: t(edu.institution),
       duration: t(edu.duration),
       location: t(edu.location),
-      description: '',
+      description: edu.university ? `${t("Affiliation:")} ${t(edu.university)}` : '',
       modules: [],
       highlights: (edu.highlights || []).map((h: string) => t(h)),
     }))

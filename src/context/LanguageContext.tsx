@@ -103,10 +103,16 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
 
     // Education Degrees & Orgs
     "Dr. D.Y. Patil Technical Campus, Varale": "डॉ. डी. वाय. पाटील टेक्निकल कॅम्पस, वराळे",
+    "Savitribai Phule Pune University (SPPU)": "सावित्रीबाई फुले पुणे विद्यापीठ (SPPU)",
+    "Maharashtra State Board of Technical Education (MSBTE)": "महाराष्ट्र राज्य तंत्र शिक्षण मंडळ (MSBTE)",
+    "Maharashtra State Board (SSC)": "महाराष्ट्र राज्य माध्यमिक मंडळ (SSC)",
+    "Affiliation:": "संलग्नता / मंडळ:",
     "B.Tech in Electronics & Computer Engineering (Direct Second Year)": "बी.टेक - इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंग (डायरेक्ट सेकंड इयर)",
     "B.Tech in Electronics and Computer Engineering": "बी.टेक - इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंग",
     "2026 - 2029 (Currently Pursuing)": "२०२६ - २०२९ (सध्या शिकत आहे)",
     "Varale, Talegaon, Pune, Maharashtra, India": "वराळे, तळेगाव, पुणे, महाराष्ट्र, भारत",
+    "Affiliated to Savitribai Phule Pune University (SPPU) — newly enrolled Direct Second Year (DSE) undergraduate.": "सावित्रीबाई फुले पुणे विद्यापीठाशी संलग्न (SPPU) — नवनिर्वाचित डायरेक्ट सेकंड इयर (DSE) पदवीधर विद्यार्थी.",
+    "Embarking on the B.Tech journey in Electronics and Computer Engineering, eager to explore computing hardware, embedded IoT systems, and scalable software architectures.": "इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंगमध्ये बी.टेकच्या प्रवासाची सुरुवात, कॉम्प्युटिंग हार्डवेअर, एम्बेडेड IoT सिस्टीम्स आणि सॉफ्टवेअर आर्किटेक्चर शिकण्यास उत्सुक.",
     "Newly admitted Direct Second Year (DSE) undergraduate embarking on the B.Tech journey in Electronics and Computer Engineering.": "इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंगमध्ये बी.टेकच्या प्रवासाची सुरुवात करणारा नवनिर्वाचित डायरेक्ट सेकंड इयर (DSE) पदवीधर विद्यार्थी.",
     "Eager to explore modern computing hardware, embedded IoT systems, and integrate with scalable mobile and full-stack software.": "आधुनिक कॉम्प्युटिंग हार्डवेअर, एम्बेडेड IoT सिस्टीम्स एक्सप्लोर करण्यास आणि स्केलेबल मोबाईल व फुल-स्टॅक सॉफ्टवेअर तयार करण्यास उत्सुक.",
     "Nanasaheb Mahadik Polytechnic Institute": "नानासाहेब महाडिक पॉलिटेक्निक इन्स्टिट्यूट",
@@ -119,6 +125,8 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     "Islampur, Maharashtra, India": "इस्लामपूर, महाराष्ट्र, भारत",
 
     // Education Highlights
+    "Affiliated to MSBTE (Maharashtra State Board of Technical Education) — successfully completed 3-year Diploma program with distinction.": "महाराष्ट्र राज्य तंत्र शिक्षण मंडळाशी संलग्न (MSBTE) — ३ वर्षांचा पदविका/डिप्लोमा कार्यक्रम विशेष प्रावीण्यासह यशस्वीरीत्या पूर्ण.",
+    "Strong foundation in Object-Oriented Programming (OOP), Core Java, and DBMS / SQL systems with deployed capstone projects.": "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग (OOP), कोअर जावा आणि DBMS/SQL सिस्टीमचा मजबूत पाया व शैक्षणिक प्रकल्पांची यशस्वी अंमलबजावणी.",
     "Successfully completed 3-year Diploma program with strong foundation in Object-Oriented Programming (OOP), Core Java, and DBMS / SQL systems.": "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग (OOP), कोअर जावा आणि DBMS/SQL सिस्टीमच्या मजबूत पायाभरणीसह ३ वर्षांचा डिप्लोमा कार्यक्रम यशस्वीरित्या पूर्ण केला.",
     "Delivered institutional software systems (Feedback Management System & Quiz Platform) utilizing a structured 4-phase software lifecycle.": "सुनियोजित ४-टप्प्यांच्या सॉफ्टवेअर प्रक्रियेचा वापर करून संस्थात्मक सॉफ्टवेअर सिस्टीम्स (फीडबॅक मॅनेजमेंट आणि क्विझ प्लॅटफॉर्म) यशस्वीरीत्या विकसित व तैनात केले.",
     "Rigorous training in Object-Oriented Programming (OOP) & Core Java concepts plus robust DBMS / SQL systems.": "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग (OOP) आणि कोअर जावा संकल्पनांसह मजबूत DBMS/SQL सिस्टीमचे सखोल प्रशिक्षण.",

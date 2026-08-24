@@ -13,7 +13,7 @@ interface SEOProps {
 export default function SEO({
   title = OWNER_CONFIG.title,
   description = OWNER_CONFIG.bio,
-  keywords = 'Pranav Patil, Pranav Shahaji Patil, B.Tech Electronics and Computer Engineering, Dr. D.Y. Patil Technical Campus Varale Talegaon, Android Specialist, Creative Developer, Kotlin, Java Developer, Android Studio, UI/UX Designer, Embedded Systems, IoT, Software Engineer Portfolio, Pune IT Professional',
+  keywords = 'Pranav Patil, Pranav Shahaji Patil, B.Tech Electronics and Computer Engineering, Savitribai Phule Pune University, SPPU, Dr. D.Y. Patil Technical Campus Varale Talegaon, MSBTE, Android Specialist, Creative Developer, Kotlin, Java Developer, Android Studio, UI/UX Designer, Embedded Systems, IoT, Software Engineer Portfolio, Pune IT Professional',
   image = '/profil1.png',
   url = window.location.origin
 }: SEOProps) {
@@ -25,7 +25,7 @@ export default function SEO({
     "@type": "Person",
     "name": OWNER_CONFIG.fullName || "Pranav Shahaji Patil",
     "alternateName": OWNER_CONFIG.name || "Pranav Patil",
-    "jobTitle": OWNER_CONFIG.role || "Creative Software Developer & Electronics/Computer Engineering Undergrad",
+    "jobTitle": OWNER_CONFIG.role || "Creative Software Developer & B.Tech Undergrad (ECE)",
     "worksFor": {
       "@type": "Organization",
       "name": "AppVishwa Software Solutions Pvt. Ltd."
@@ -33,11 +33,11 @@ export default function SEO({
     "alumniOf": [
       {
         "@type": "EducationalOrganization",
-        "name": "Dr. D.Y. Patil Technical Campus, Varale, Talegaon, Pune"
+        "name": "Savitribai Phule Pune University (SPPU) - Dr. D.Y. Patil Technical Campus, Varale, Talegaon, Pune"
       },
       {
         "@type": "EducationalOrganization",
-        "name": "Nanasaheb Mahadik Polytechnic Institute"
+        "name": "Nanasaheb Mahadik Polytechnic Institute (MSBTE)"
       }
     ],
     "url": url,

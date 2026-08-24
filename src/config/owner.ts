@@ -13,26 +13,29 @@ const DEFAULT_CONFIG = {
   education: [
     {
       institution: 'Dr. D.Y. Patil Technical Campus, Varale',
+      university: 'Savitribai Phule Pune University (SPPU)',
       degree: 'B.Tech in Electronics & Computer Engineering (Direct Second Year)',
       duration: '2026 - 2029 (Currently Pursuing)',
       location: 'Varale, Talegaon, Pune, Maharashtra, India',
       highlights: [
-        'Newly admitted Direct Second Year (DSE) undergraduate embarking on the B.Tech journey in Electronics and Computer Engineering.',
-        'Eager to explore modern computing hardware, embedded IoT systems, and integrate with scalable mobile and full-stack software.'
+        'Affiliated to Savitribai Phule Pune University (SPPU) — newly enrolled Direct Second Year (DSE) undergraduate.',
+        'Embarking on the B.Tech journey in Electronics and Computer Engineering, eager to explore computing hardware, embedded IoT systems, and scalable software architectures.'
       ]
     },
     {
       institution: 'Nanasaheb Mahadik Polytechnic Institute',
+      university: 'Maharashtra State Board of Technical Education (MSBTE)',
       degree: 'Diploma in Computer Engineering (Completed)',
       duration: '08/2022 - 06/2025 (Completed)',
       location: 'Peth, Maharashtra, India',
       highlights: [
-        'Successfully completed 3-year Diploma program with strong foundation in Object-Oriented Programming (OOP), Core Java, and DBMS / SQL systems.',
-        'Delivered institutional software systems (Feedback Management System & Quiz Platform) utilizing a structured 4-phase software lifecycle.'
+        'Affiliated to MSBTE (Maharashtra State Board of Technical Education) — successfully completed 3-year Diploma program with distinction.',
+        'Strong foundation in Object-Oriented Programming (OOP), Core Java, and DBMS / SQL systems with deployed capstone projects.'
       ]
     },
     {
       institution: 'Islampur High School, Islampur',
+      university: 'Maharashtra State Board (SSC)',
       degree: 'Secondary School Certificate (SSC)',
       duration: '06/2021 - 06/2022',
       location: 'Islampur, Maharashtra, India',
