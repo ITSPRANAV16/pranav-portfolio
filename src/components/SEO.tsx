@@ -13,7 +13,7 @@ interface SEOProps {
 export default function SEO({
   title = OWNER_CONFIG.title,
   description = OWNER_CONFIG.bio,
-  keywords = 'Pranav Patil, Pranav Shahaji Patil, Android Specialist, Creative Developer, Kotlin, Java Developer, Android Studio, UI/UX Designer, Software Engineer Portfolio, Pune IT Professional',
+  keywords = 'Pranav Patil, Pranav Shahaji Patil, B.Tech Electronics and Computer Engineering, Dr. D.Y. Patil Technical Campus Varale Talegaon, Android Specialist, Creative Developer, Kotlin, Java Developer, Android Studio, UI/UX Designer, Embedded Systems, IoT, Software Engineer Portfolio, Pune IT Professional',
   image = '/profil1.png',
   url = window.location.origin
 }: SEOProps) {
@@ -25,15 +25,21 @@ export default function SEO({
     "@type": "Person",
     "name": OWNER_CONFIG.fullName || "Pranav Shahaji Patil",
     "alternateName": OWNER_CONFIG.name || "Pranav Patil",
-    "jobTitle": OWNER_CONFIG.role || "Creative Software Developer & Android Specialist",
+    "jobTitle": OWNER_CONFIG.role || "Creative Software Developer & Electronics/Computer Engineering Undergrad",
     "worksFor": {
       "@type": "Organization",
       "name": "AppVishwa Software Solutions Pvt. Ltd."
     },
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Nanasaheb Mahadik Polytechnic Institute"
-    },
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Dr. D.Y. Patil Technical Campus, Varale, Talegaon, Pune"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Nanasaheb Mahadik Polytechnic Institute"
+      }
+    ],
     "url": url,
     "image": `${url}${image}`,
     "address": {
@@ -45,8 +51,10 @@ export default function SEO({
     "description": finalDescription,
     "sameAs": Object.values(OWNER_CONFIG.socials || {}).filter(Boolean),
     "knowsAbout": [
+      "Electronics and Computer Engineering",
       "Android Development",
       "Java Programming",
+      "Embedded Systems & IoT",
       "UI/UX Design",
       "Kotlin",
       "SQL",

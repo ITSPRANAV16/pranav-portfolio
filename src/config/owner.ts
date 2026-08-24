@@ -5,16 +5,26 @@ const DEFAULT_CONFIG = {
   email: 'pranavsp2810@gmail.com',
   phone: '8770871946',
   location: 'Pune, India',
-  role: 'Creative Software Developer & Android Specialist',
-  tagline: 'creative developer passionate about building next-gen android systems, robust backend logic, and striking interactive interfaces.',
-  bio: "Creative Software Developer skilled in Java, Android app development, and UI/UX prototyping. I design intuitive user interfaces and know how to build them so they work perfectly. I am ready to contribute to the IT industry, backed by a successful 3-month internship at AppVishwa Software Solutions Pvt. Ltd and real-world projects like the Feedback Management System. Highly interested in creating innovative mobile applications, with strong problem-solving skills and a team-focused mindset.",
+  role: 'Creative Software Developer & Electronics/Computer Engineering Undergrad',
+  tagline: 'creative developer passionate about building next-gen android systems, embedded IoT architectures, and striking interactive interfaces.',
+  bio: "B.Tech student in Electronics and Computer Engineering at Dr. D.Y. Patil Technical Campus, Varale, Pune, with a strong Diploma background in Computer Engineering. Skilled in Java, Android app development, embedded systems, and UI/UX prototyping. Ready to contribute to engineering and IT industries, backed by a successful 3-month internship at AppVishwa Software Solutions Pvt. Ltd and real-world projects like the Feedback Management System.",
   cvUrl: 'https://drive.google.com/file/d/1ONsNm81ajVR8-SQvSWJ0cwEhKIhct__Q/view?usp=drive_link',
   
   education: [
     {
+      institution: 'Dr. D.Y. Patil Technical Campus, Varale',
+      degree: 'B.Tech in Electronics and Computer Engineering',
+      duration: '2026 - 2029',
+      location: 'Varale, Talegaon, Pune, Maharashtra, India',
+      highlights: [
+        'Direct Second Year (DSE) student in Electronics and Computer Engineering, bridging hardware-level computing, embedded IoT systems, and advanced software architectures.',
+        'Engineering modern mobile applications, sensor-driven systems, and scalable full-stack platforms.'
+      ]
+    },
+    {
       institution: 'Nanasaheb Mahadik Polytechnic Institute',
       degree: 'Diploma in Computer Engineering',
-      duration: '08/2022 - Present',
+      duration: '08/2022 - 06/2025',
       location: 'Peth, Maharashtra, India',
       highlights: [
         'Rigorous training in Object-Oriented Programming (OOP) & Core Java concepts plus robust DBMS / SQL systems.',
