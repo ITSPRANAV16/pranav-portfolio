@@ -5,30 +5,30 @@ const DEFAULT_CONFIG = {
   email: 'pranavsp2810@gmail.com',
   phone: '8770871946',
   location: 'Pune, India',
-  role: 'Creative Software Developer & Electronics/Computer Engineering Undergrad',
-  tagline: 'creative developer passionate about building next-gen android systems, embedded IoT architectures, and striking interactive interfaces.',
-  bio: "B.Tech student in Electronics and Computer Engineering at Dr. D.Y. Patil Technical Campus, Varale, Pune, with a strong Diploma background in Computer Engineering. Skilled in Java, Android app development, embedded systems, and UI/UX prototyping. Ready to contribute to engineering and IT industries, backed by a successful 3-month internship at AppVishwa Software Solutions Pvt. Ltd and real-world projects like the Feedback Management System.",
+  role: 'Creative Software Developer & B.Tech Undergrad (ECE)',
+  tagline: 'creative developer passionate about building next-gen android apps, exploring electronics & computing systems, and crafting responsive web interfaces.',
+  bio: "Completed Diploma in Computer Engineering and currently pursuing B.Tech in Electronics & Computer Engineering (Direct Second Year) at Dr. D.Y. Patil Technical Campus, Varale, Pune. Skilled in Java, Android app development, and UI/UX prototyping. Eager to learn, innovate, and contribute to the tech industry, backed by a successful 3-month internship at AppVishwa Software Solutions Pvt. Ltd and real-world project deliveries.",
   cvUrl: 'https://drive.google.com/file/d/1ONsNm81ajVR8-SQvSWJ0cwEhKIhct__Q/view?usp=drive_link',
   
   education: [
     {
       institution: 'Dr. D.Y. Patil Technical Campus, Varale',
-      degree: 'B.Tech in Electronics and Computer Engineering',
-      duration: '2026 - 2029',
+      degree: 'B.Tech in Electronics & Computer Engineering (Direct Second Year)',
+      duration: '2026 - 2029 (Currently Pursuing)',
       location: 'Varale, Talegaon, Pune, Maharashtra, India',
       highlights: [
-        'Direct Second Year (DSE) student in Electronics and Computer Engineering, bridging hardware-level computing, embedded IoT systems, and advanced software architectures.',
-        'Engineering modern mobile applications, sensor-driven systems, and scalable full-stack platforms.'
+        'Newly admitted Direct Second Year (DSE) undergraduate embarking on the B.Tech journey in Electronics and Computer Engineering.',
+        'Eager to explore modern computing hardware, embedded IoT systems, and integrate with scalable mobile and full-stack software.'
       ]
     },
     {
       institution: 'Nanasaheb Mahadik Polytechnic Institute',
-      degree: 'Diploma in Computer Engineering',
-      duration: '08/2022 - 06/2025',
+      degree: 'Diploma in Computer Engineering (Completed)',
+      duration: '08/2022 - 06/2025 (Completed)',
       location: 'Peth, Maharashtra, India',
       highlights: [
-        'Rigorous training in Object-Oriented Programming (OOP) & Core Java concepts plus robust DBMS / SQL systems.',
-        'Executed multiple academic capstone projects utilizing a strict 4-phase software lifecycle: strategic mapping, system blue-printing, clean compilation, and performance testing.'
+        'Successfully completed 3-year Diploma program with strong foundation in Object-Oriented Programming (OOP), Core Java, and DBMS / SQL systems.',
+        'Delivered institutional software systems (Feedback Management System & Quiz Platform) utilizing a structured 4-phase software lifecycle.'
       ]
     },
     {

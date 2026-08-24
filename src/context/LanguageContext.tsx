@@ -94,25 +94,33 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     "Crafting reliable, responsive mobile and web experiences that perform under loading constraints and delight users globally.": "अडथळ्यांशिवाय चालणारे आणि जगभरातील युझर्सना आनंद देणारे दर्जेदार मोबाईल आणि वेब अनुभव निर्माण करणे.",
 
     // Tagline / Bio
+    "creative developer passionate about building next-gen android apps, exploring electronics & computing systems, and crafting responsive web interfaces.": "पुढील पिढीच्या अँड्रॉइड ॲप्स, इलेक्ट्रॉनिक्स आणि कॉम्प्युटिंग सिस्टीम्स एक्सप्लोर करणारा आणि आकर्षक वेब इंटरफेस बनवणारा क्रिएटिव्ह डेव्हलपर.",
     "creative developer passionate about building next-gen android systems, embedded IoT architectures, and striking interactive interfaces.": "पुढील पिढीच्या अँड्रॉइड सिस्टीम्स, एम्बेडेड IoT आर्किटेक्चर्स आणि आकर्षक परस्परसंवादी इंटरफेस विकसित करण्यास उत्सुक असलेला एक क्रिएटिव्ह डेव्हलपर.",
     "creative developer passionate about building next-gen android systems, robust backend logic, and striking interactive interfaces.": "मी पुढील पिढीच्या अँड्रॉइड प्रणाली, मजबूत बॅकएंड लॉजिक आणि आकर्षक युझर इंटरफेस तयार करण्यास उत्सुक असलेला एक क्रिएटिव्ह डेव्हलपर आहे.",
+    "Creative Software Developer & B.Tech Undergrad (ECE)": "क्रिएटिव्ह सॉफ्टवेअर डेव्हलपर आणि बी.टेक पदवीधर (ECE)",
     "Creative Software Developer & Electronics/Computer Engineering Undergrad": "क्रिएटिव्ह सॉफ्टवेअर डेव्हलपर आणि इलेक्ट्रॉनिक्स/कॉम्प्युटर इंजिनिअरिंग विद्यार्थी",
-    "B.Tech student in Electronics and Computer Engineering at Dr. D.Y. Patil Technical Campus, Varale, Pune, with a strong Diploma background in Computer Engineering. Skilled in Java, Android app development, embedded systems, and UI/UX prototyping. Ready to contribute to engineering and IT industries, backed by a successful 3-month internship at AppVishwa Software Solutions Pvt. Ltd and real-world projects like the Feedback Management System.": "डॉ. डी. वाय. पाटील टेक्निकल कॅम्पस, वराळे, पुणे येथे इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंगचा बी.टेक विद्यार्थी, तसेच कॉम्प्युटर इंजिनिअरिंगचा मजबूत डिप्लोमा पार्श्वभूमी. जावा, अँड्रॉइड ॲप डेव्हलपमेंट, एम्बेडेड सिस्टीम्स आणि UI/UX प्रोटोटायपिंगमध्ये कुशल. अॅपविश्व सॉफ्टवेअर सोल्यूशन्स प्रा. लि. मधील यशस्वी ३ महिन्यांच्या इंटर्नशिपच्या आणि फीडबॅक मॅनेजमेंट सिस्टीमसारख्या वास्तविक प्रकल्पांच्या अनुभवासह उद्योग क्षेत्रात योगदान देण्यास सज्ज.",
+    "Completed Diploma in Computer Engineering and currently pursuing B.Tech in Electronics & Computer Engineering (Direct Second Year) at Dr. D.Y. Patil Technical Campus, Varale, Pune. Skilled in Java, Android app development, and UI/UX prototyping. Eager to learn, innovate, and contribute to the tech industry, backed by a successful 3-month internship at AppVishwa Software Solutions Pvt. Ltd and real-world project deliveries.": "कॉम्प्युटर इंजिनिअरिंगचा डिप्लोमा यशस्वीरीत्या पूर्ण करून सध्या डॉ. डी. वाय. पाटील टेक्निकल कॅम्पस, वराळे, पुणे येथे इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंग (डायरेक्ट सेकंड इयर) मध्ये बी.टेक पदवी घेत आहे. जावा, अँड्रॉइड ॲप डेव्हलपमेंट आणि UI/UX प्रोटोटायपिंगमध्ये कुशल. अॅपविश्व सॉफ्टवेअर सोल्यूशन्स प्रा. लि. मधील ३ महिन्यांच्या इंटर्नशिप आणि प्रोजेक्ट्सच्या अनुभवासह तंत्रज्ञान क्षेत्रात शिकण्यास आणि योगदान देण्यास सज्ज.",
 
     // Education Degrees & Orgs
     "Dr. D.Y. Patil Technical Campus, Varale": "डॉ. डी. वाय. पाटील टेक्निकल कॅम्पस, वराळे",
+    "B.Tech in Electronics & Computer Engineering (Direct Second Year)": "बी.टेक - इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंग (डायरेक्ट सेकंड इयर)",
     "B.Tech in Electronics and Computer Engineering": "बी.टेक - इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंग",
+    "2026 - 2029 (Currently Pursuing)": "२०२६ - २०२९ (सध्या शिकत आहे)",
     "Varale, Talegaon, Pune, Maharashtra, India": "वराळे, तळेगाव, पुणे, महाराष्ट्र, भारत",
-    "Direct Second Year (DSE) student in Electronics and Computer Engineering, bridging hardware-level computing, embedded IoT systems, and advanced software architectures.": "इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंग मधील डायरेक्ट सेकंड इयर (DSE) विद्यार्थी, हार्डवेअर-स्तरीय कॉम्प्युटिंग, एम्बेडेड IoT सिस्टीम्स आणि प्रगत सॉफ्टवेअर आर्किटेक्चरचा मिलाफ साधणे.",
-    "Engineering modern mobile applications, sensor-driven systems, and scalable full-stack platforms.": "आधुनिक मोबाईल ॲप्लिकेशन्स, सेन्सर-आधारित सिस्टीम्स आणि स्केलेबल फुल-स्टॅक प्लॅटफॉर्म विकसित करणे.",
+    "Newly admitted Direct Second Year (DSE) undergraduate embarking on the B.Tech journey in Electronics and Computer Engineering.": "इलेक्ट्रॉनिक्स आणि कॉम्प्युटर इंजिनिअरिंगमध्ये बी.टेकच्या प्रवासाची सुरुवात करणारा नवनिर्वाचित डायरेक्ट सेकंड इयर (DSE) पदवीधर विद्यार्थी.",
+    "Eager to explore modern computing hardware, embedded IoT systems, and integrate with scalable mobile and full-stack software.": "आधुनिक कॉम्प्युटिंग हार्डवेअर, एम्बेडेड IoT सिस्टीम्स एक्सप्लोर करण्यास आणि स्केलेबल मोबाईल व फुल-स्टॅक सॉफ्टवेअर तयार करण्यास उत्सुक.",
     "Nanasaheb Mahadik Polytechnic Institute": "नानासाहेब महाडिक पॉलिटेक्निक इन्स्टिट्यूट",
+    "Diploma in Computer Engineering (Completed)": "संगणक अभियांत्रिकी पदविका / डिप्लोमा (यशस्वीरीत्या पूर्ण)",
     "Diploma in Computer Engineering": "संगणक अभियांत्रिकी पदविका (डिप्लोमा)",
+    "08/2022 - 06/2025 (Completed)": "०८/२०२२ - ०६/२०२५ (पूर्ण)",
     "Peth, Maharashtra, India": "पेठ, महाराष्ट्र, भारत",
     "Islampur High School, Islampur": "इस्लामपूर हायस्कूल, इस्लामपूर",
     "Secondary School Certificate (SSC)": "माध्यमिक शाळा प्रमाणपत्र (SSC)",
     "Islampur, Maharashtra, India": "इस्लामपूर, महाराष्ट्र, भारत",
 
     // Education Highlights
+    "Successfully completed 3-year Diploma program with strong foundation in Object-Oriented Programming (OOP), Core Java, and DBMS / SQL systems.": "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग (OOP), कोअर जावा आणि DBMS/SQL सिस्टीमच्या मजबूत पायाभरणीसह ३ वर्षांचा डिप्लोमा कार्यक्रम यशस्वीरित्या पूर्ण केला.",
+    "Delivered institutional software systems (Feedback Management System & Quiz Platform) utilizing a structured 4-phase software lifecycle.": "सुनियोजित ४-टप्प्यांच्या सॉफ्टवेअर प्रक्रियेचा वापर करून संस्थात्मक सॉफ्टवेअर सिस्टीम्स (फीडबॅक मॅनेजमेंट आणि क्विझ प्लॅटफॉर्म) यशस्वीरीत्या विकसित व तैनात केले.",
     "Rigorous training in Object-Oriented Programming (OOP) & Core Java concepts plus robust DBMS / SQL systems.": "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग (OOP) आणि कोअर जावा संकल्पनांसह मजबूत DBMS/SQL सिस्टीमचे सखोल प्रशिक्षण.",
     "Executed multiple academic capstone projects utilizing a strict 4-phase software lifecycle: strategic mapping, system blue-printing, clean compilation, and performance testing.": "योजना आखणे, ब्ल्यूप्रिंट डिझाइन करणे, अचूक कोडिंग आणि कार्यक्षमता चाचणी अशा ४-टप्प्यांच्या कठोर सॉफ्टवेअर डेव्हलपमेंट प्रक्रियेचा वापर करून एकापेक्षा जास्त शैक्षणिक प्रकल्प पूर्ण केले.",
     "Graduated with strong fundamental academic performance": "उत्कृष्ट शैक्षणिक गुणांसह यश मिळवून उत्तीर्ण",
