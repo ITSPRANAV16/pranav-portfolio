@@ -39,9 +39,15 @@ export default function HeroSection({ onContactClick, id = 'hero' }: HeroSection
   };
 
   const handleScrollTo = (elementId: string) => {
+    if (elementId === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const element = document.getElementById(elementId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = -20;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 

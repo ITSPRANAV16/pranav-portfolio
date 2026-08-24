@@ -43,9 +43,15 @@ export default function StickyHeader({ onContactClick }: StickyHeaderProps) {
 
   const handleScrollTo = (id: string) => {
     setMobileMenuOpen(false);
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = -40;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 

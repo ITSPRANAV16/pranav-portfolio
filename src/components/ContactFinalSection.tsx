@@ -48,12 +48,7 @@ export default function ContactFinalSection({ onContactClick }: { onContactClick
       />
 
       <motion.div
-        onViewportEnter={() => {
-          if (containerRef.current) {
-            containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-          }
-        }}
-        viewport={{ amount: 0.3 }} // Trigger when 30% visible
+        viewport={{ amount: 0.3, once: true }}
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

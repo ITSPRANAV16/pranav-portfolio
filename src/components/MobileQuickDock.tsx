@@ -58,9 +58,15 @@ export default function MobileQuickDock({ onContactClick }: MobileQuickDockProps
   const handleScrollTo = (id: string) => {
     triggerHaptic(15);
     setExpanded(false);
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -30;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 

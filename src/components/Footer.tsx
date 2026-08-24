@@ -28,11 +28,16 @@ export default function Footer() {
   }, []);
 
   const handleScrollTo = (id: string) => {
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = -20;
+      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     } else {
-      // Fallback
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
