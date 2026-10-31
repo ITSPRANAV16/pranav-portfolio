@@ -74,6 +74,34 @@ const DEFAULT_CONFIG = {
     }
   ],
 
+  leadership: [
+    {
+      role: "Lead Event Coordinator - Teachers' Day Debate Competition",
+      organization: "Dr. D.Y. Patil Technical Campus, Varale",
+      duration: "09/2026",
+      location: "Varale, Talegaon, Pune, Maharashtra, India",
+      description: "Spearheaded the organization and execution of the departmental debate competition on Teachers' Day. Managed team logistics, curated debate topics, and coordinated faculty jury evaluations.",
+      modules: [
+        {
+          title: "Event Planning & Architecture",
+          details: "Formulated debate formats, curated topic pools on emerging technologies and societal themes, and structured strict timekeeping rules for 50+ participants."
+        },
+        {
+          title: "Faculty & Jury Coordination",
+          details: "Liaised directly with college professors and guest judges, establishing objective scoring rubrics and structured speaker protocols."
+        },
+        {
+          title: "Team Delegation & Stage Logistics",
+          details: "Led a student volunteer crew of 8 peers, managing attendee registration desk, A/V audio systems, and stage flow."
+        },
+        {
+          title: "Public Engagement & Conflict Resolution",
+          details: "Acted as primary point of contact for participant queries, ensuring seamless round transitions and an energetic academic debate environment."
+        }
+      ]
+    }
+  ],
+
   skillCategories: [
     {
       name: 'Programming Languages',

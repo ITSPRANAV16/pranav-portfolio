@@ -1,20 +1,21 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { OWNER_CONFIG } from '../config/owner';
-import { Briefcase, GraduationCap, Calendar, MapPin, ChevronRight, CheckCircle2, Award, Sparkles, BookOpen } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, MapPin, ChevronRight, CheckCircle2, Award, Sparkles, BookOpen, Users } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import CertificateModal from './CertificateModal';
 
 export default function ExperienceSection({ id = 'experience' }: { id?: string }) {
   const experiences = OWNER_CONFIG.experience || [];
   const educations = OWNER_CONFIG.education || [];
+  const leadership = OWNER_CONFIG.leadership || [];
   const { t, language } = useLanguage();
   const [activeCertId, setActiveCertId] = useState<string | null>(null);
 
   const detailsRef = useRef<HTMLDivElement>(null);
 
   // Group all items into a unified list or separate tabs
-  const [activeTab, setActiveTab] = useState<'all' | 'experience' | 'education'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'experience' | 'leadership' | 'education'>('all');
   const [selectedId, setSelectedId] = useState<string>('exp-0');
 
   // Let's create a combined array of items with pre-calculated details for interactive click actions
@@ -28,6 +29,20 @@ export default function ExperienceSection({ id = 'experience' }: { id?: string }
       location: t(exp.location),
       description: t(exp.description),
       modules: (exp.modules || []).map(m => ({
+        title: t(m.title),
+        details: t(m.details)
+      })),
+      highlights: [],
+    })),
+    ...leadership.map((lead: any, idx: number) => ({
+      uid: `lead-${idx}`,
+      type: 'leadership' as const,
+      title: t(lead.role),
+      subtitle: t(lead.organization),
+      duration: t(lead.duration),
+      location: t(lead.location),
+      description: t(lead.description),
+      modules: (lead.modules || []).map((m: any) => ({
         title: t(m.title),
         details: t(m.details)
       })),
@@ -120,6 +135,17 @@ export default function ExperienceSection({ id = 'experience' }: { id?: string }
             {t("Experience")}
           </button>
           <button
+            onClick={() => setActiveTab('leadership')}
+            className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all duration-300 flex items-center gap-2 border cursor-pointer select-none ${
+              activeTab === 'leadership' 
+                ? 'bg-[#121212] text-white border-transparent shadow-lg scale-[1.03]' 
+                : 'bg-white hover:bg-gray-50 text-neutral-600 hover:text-black border-gray-200'
+            }`}
+          >
+            <Users className="w-3.5 h-3.5 text-emerald-500" />
+            {t("Leadership & Roles")}
+          </button>
+          <button
             onClick={() => setActiveTab('education')}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all duration-300 flex items-center gap-2 border cursor-pointer select-none ${
               activeTab === 'education' 
@@ -170,7 +196,13 @@ export default function ExperienceSection({ id = 'experience' }: { id?: string }
                       {isSelected && (
                         <motion.div 
                           layoutId="selected-indicator"
-                          className={`absolute left-0 top-0 bottom-0 w-1.5 ${item.type === 'experience' ? 'bg-sky-500' : 'bg-amber-400'}`}
+                          className={`absolute left-0 top-0 bottom-0 w-1.5 ${
+                            item.type === 'experience' 
+                              ? 'bg-sky-500' 
+                              : item.type === 'leadership' 
+                                ? 'bg-emerald-500' 
+                                : 'bg-amber-400'
+                          }`}
                         />
                       )}
 
@@ -178,15 +210,29 @@ export default function ExperienceSection({ id = 'experience' }: { id?: string }
                         <div className="flex gap-3">
                           <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
                             isSelected 
-                              ? (item.type === 'experience' ? 'bg-sky-500/10 text-sky-600' : 'bg-amber-500/10 text-amber-600')
+                              ? (item.type === 'experience' 
+                                  ? 'bg-sky-500/10 text-sky-600' 
+                                  : item.type === 'leadership'
+                                    ? 'bg-emerald-500/10 text-emerald-600'
+                                    : 'bg-amber-500/10 text-amber-600')
                               : 'bg-gray-100 text-gray-400'
                           }`}>
-                            {item.type === 'experience' ? <Briefcase className="w-4 h-4" /> : <GraduationCap className="w-4 h-4" />}
+                            {item.type === 'experience' ? (
+                              <Briefcase className="w-4 h-4" />
+                            ) : item.type === 'leadership' ? (
+                              <Users className="w-4 h-4" />
+                            ) : (
+                              <GraduationCap className="w-4 h-4" />
+                            )}
                           </div>
                           
                           <div>
                             <span className="text-[10px] uppercase font-mono tracking-wider text-gray-400 block mb-0.5">
-                              {item.type === 'experience' ? 'Industrial Exp' : 'Academic Deg'}
+                              {item.type === 'experience' 
+                                ? 'Industrial Exp' 
+                                : item.type === 'leadership' 
+                                  ? 'Leadership Role' 
+                                  : 'Academic Deg'}
                             </span>
                             <h3 className={`text-base font-black uppercase tracking-tight leading-tight ${isSelected ? 'text-[#121212]' : 'text-neutral-700'}`}>
                               {item.subtitle}
@@ -233,6 +279,11 @@ export default function ExperienceSection({ id = 'experience' }: { id?: string }
                         <>
                           <Briefcase className="w-4 h-4 text-sky-500" />
                           PROFESSIONAL EXPERIENCE
+                        </>
+                      ) : currentSelection.type === 'leadership' ? (
+                        <>
+                          <Users className="w-4 h-4 text-emerald-500" />
+                          LEADERSHIP & EVENT COORDINATION
                         </>
                       ) : (
                         <>
@@ -288,18 +339,35 @@ export default function ExperienceSection({ id = 'experience' }: { id?: string }
                       </div>
                     ) : null}
 
-                    {/* Modules Render for Intern AppVishwa */}
+                    {/* Modules Render for Intern AppVishwa or Leadership Role */}
                     {currentSelection.modules.length > 0 ? (
                       <div>
-                        <span className="text-[10px] font-mono tracking-wider font-bold text-sky-600 uppercase mb-3 block animate-pulse">
-                          {t("Mastered Stacks / Practical Training")}
+                        <span className={`text-[10px] font-mono tracking-wider font-bold uppercase mb-3 block ${
+                          currentSelection.type === 'leadership' ? 'text-emerald-600' : 'text-sky-600 animate-pulse'
+                        }`}>
+                          {currentSelection.type === 'leadership' 
+                            ? t("Core Responsibilities & Event Modules") 
+                            : t("Mastered Stacks / Practical Training")}
                         </span>
                         
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                           {currentSelection.modules.map((mod: any, idx: number) => (
-                            <div key={idx} className="bg-sky-50/20 border border-sky-100/50 hover:border-sky-200 hover:bg-sky-50/40 p-4 rounded-2xl transition-all duration-300">
-                              <h4 className="text-xs font-black uppercase tracking-wider text-sky-600 mb-1 flex items-center gap-1.5">
-                                <BookOpen className="w-3.5 h-3.5" />
+                            <div 
+                              key={idx} 
+                              className={`p-4 rounded-2xl transition-all duration-300 border ${
+                                currentSelection.type === 'leadership'
+                                  ? 'bg-emerald-50/30 border-emerald-100 hover:border-emerald-300 hover:bg-emerald-50/60'
+                                  : 'bg-sky-50/20 border-sky-100/50 hover:border-sky-200 hover:bg-sky-50/40'
+                              }`}
+                            >
+                              <h4 className={`text-xs font-black uppercase tracking-wider mb-1 flex items-center gap-1.5 ${
+                                currentSelection.type === 'leadership' ? 'text-emerald-700' : 'text-sky-600'
+                              }`}>
+                                {currentSelection.type === 'leadership' ? (
+                                  <Users className="w-3.5 h-3.5 text-emerald-600" />
+                                ) : (
+                                  <BookOpen className="w-3.5 h-3.5" />
+                                )}
                                 {mod.title}
                               </h4>
                               <p className="text-[11px] text-neutral-600 leading-normal">

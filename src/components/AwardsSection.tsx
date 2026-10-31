@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Award, Trophy, ShieldCheck, Bookmark, Sparkles, ExternalLink } from 'lucide-react';
+import { Award, Trophy, ShieldCheck, Bookmark, Sparkles, ExternalLink, Users } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 interface AwardItem {
@@ -47,6 +47,16 @@ export default function AwardsSection({ id = 'awards' }: { id?: string }) {
       description: 'Awarded for successful participation in the "Decode" event under AI FUSION 2.0, jointly organized by the Department of CSE (AI & ML) and the Students Association of Artificial Intelligence (SAAI).',
       icon: Sparkles,
       color: 'from-purple-500/10 to-pink-500/5 hover:border-purple-400/50',
+    },
+    {
+      id: 'award-4',
+      title: "Lead Event Coordinator - Teachers' Day Debate Competition",
+      category: 'Institutional Leadership',
+      issuer: 'Dr. D.Y. Patil Technical Campus, Varale, Pune',
+      date: '09/2026',
+      description: 'Recognized for organizational excellence and student team leadership as the Lead Coordinator of the Teachers\' Day Debate Competition, managing 50+ participants, stage logistics, and jury evaluations.',
+      icon: Users,
+      color: 'from-emerald-500/10 to-teal-500/5 hover:border-emerald-400/50',
     }
   ];
 

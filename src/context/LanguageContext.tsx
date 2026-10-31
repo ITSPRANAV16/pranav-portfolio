@@ -193,6 +193,24 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     "Smart Hand Gesture Car": "स्मार्ट हँड जेश्चर कार (Smart Hand Gesture Car)",
     "A wirelessly controlled robotic car that responds to real-time hand gestures via RF communication. The transmitter glove uses MPU6050 accelerometer/gyroscope data to detect tilt gestures, while the receiver car interprets RF signals for precise directional motor control using L298N H-Bridge driver.": "हाताच्या हालचालींवर (जेश्चर) चालणारी वायरलेस रोबोटिक कार. हातातील सेन्सर ग्लोव्ह MPU6050 द्वारे हाताची हालचाल ओळखतो आणि RF कम्युनिकेशनद्वारे कारला अचूक दिशेने चालवतो.",
 
+    // Leadership & Coordination
+    "Leadership & Roles": "नेतृत्व आणि जबाबदाऱ्या",
+    "Leadership Role": "नेतृत्व भूमिका",
+    "LEADERSHIP & EVENT COORDINATION": "नेतृत्व आणि कार्यक्रम समन्वय",
+    "Institutional Leadership": "संस्थात्मक नेतृत्व",
+    "Lead Event Coordinator - Teachers' Day Debate Competition": "प्रमुख कार्यक्रम समन्वयक - शिक्षक दिन वादविवाद स्पर्धा",
+    "Spearheaded the organization and execution of the departmental debate competition on Teachers' Day. Managed team logistics, curated debate topics, and coordinated faculty jury evaluations.": "शिक्षक दिनानिमित्त आयोजित वादविवाद स्पर्धेचे संपूर्ण नियोजन आणि यशस्वी आयोजन केले. टीमचे व्यवस्थापन, वादविवादाचे विषय निवडणे आणि प्राध्यापक परीक्षकांशी समन्वय साधण्याचे काम यशस्वीपणे पार पाडले.",
+    "Core Responsibilities & Event Modules": "प्रमुख जबाबदाऱ्या आणि कार्यप्रवाह",
+    "Event Planning & Architecture": "कार्यक्रमाचे नियोजन आणि रूपरेषा",
+    "Formulated debate formats, curated topic pools on emerging technologies and societal themes, and structured strict timekeeping rules for 50+ participants.": "वादविवादाची पद्धत, तांत्रिक व सामाजिक विषयांची निवड आणि ५०+ स्पर्धकांसाठी अचूक वेळेचे नियम तयार केले.",
+    "Faculty & Jury Coordination": "प्राध्यापक आणि परीक्षक समन्वय",
+    "Liaised directly with college professors and guest judges, establishing objective scoring rubrics and structured speaker protocols.": "वरिष्ठ प्राध्यापक व परीक्षकांशी थेट समन्वय साधून निष्पक्ष गुणांकन पद्धत आणि वक्त्यांसाठीचे नियम निश्चित केले.",
+    "Team Delegation & Stage Logistics": "टीम व्यवस्थापन आणि स्टेज नियोजन",
+    "Led a student volunteer crew of 8 peers, managing attendee registration desk, A/V audio systems, and stage flow.": "८ स्वयंसेवक विद्यार्थ्यांच्या टीमचे नेतृत्व करत नोंदणी कक्ष, ऑडिओ/माईक सिस्टीम आणि स्टेजचे अचूक नियोजन सांभाळले.",
+    "Public Engagement & Conflict Resolution": "स्पर्धक संवाद आणि वाद निवारण",
+    "Acted as primary point of contact for participant queries, ensuring seamless round transitions and an energetic academic debate environment.": "विद्यार्थ्यांच्या शंकांचे निरसन करून स्पर्धेच्या फेऱ्या सुरळीतपणे आणि उत्साही शैक्षणिक वातावरणात पार पाडल्या.",
+    "Recognized for organizational excellence and student team leadership as the Lead Coordinator of the Teachers' Day Debate Competition, managing 50+ participants, stage logistics, and jury evaluations.": "५०+ स्पर्धक, स्टेज व्यवस्थापन आणि प्राध्यापक परीक्षकांचे यशस्वी नियोजन करून शिक्षक दिन वादविवाद स्पर्धेचे उत्कृष्ट नेतृत्व केल्याबद्दल सन्मानित.",
+
     // Process Steps
     "Requirement Sourcing": "गरजांचे मुल्यांकन आणि संशोधन",
     "Architecture Definition": "रचना आणि आराखडा निश्चित करणे",
