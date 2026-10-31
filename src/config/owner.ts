@@ -201,9 +201,9 @@ const DEFAULT_CONFIG = {
   ],
 
   socials: {
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-    naukri: 'https://www.naukri.com'
+    github: 'https://github.com/ITSPRANAV16',
+    linkedin: 'https://www.linkedin.com/in/pranav-patil-28p16',
+    naukri: 'https://www.naukri.com/mnjuser'
   }
 };
 
