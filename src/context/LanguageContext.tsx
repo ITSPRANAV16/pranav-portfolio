@@ -184,8 +184,14 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     "Developed custom SavingsEngine algorithm computing real-time CO2 and financial savings by aggregating Room Database records with configurable environmental multipliers.": "सानुकूलित SavingsEngine अल्गोरिदम विकसित केला जो विविध निकषांचा वापर करून रिअल-टाईम CO2 आणि वित्‍तीय बचतीचा मागोवा घेऊन रूम डेटाबेस रेकॉर्डची सांगड घालतो.",
     "Implemented a dynamic gamification system parsing historical database thresholds to programmatically unlock UI achievement badges using vector drawable ColorFilter manipulation.": "ऐतिहासिक डेटाबेस थ्रेशोल्ड पार्स करून प्रोग्रामॅटिकली विविध यश पदके अनलॉक करणारी गतिमान गेमिंग प्रणाली विकसित केली.",
     "Integrated all I/O operations on ExecutorService thread pools ensuring 60fps UI performance, plus background hourly eco-tip notifications via AlarmManager + BroadcastReceiver with BOOT_COMPLETED reboot persistence.": "सर्व डेटा ट्रान्सफर ExecutorService थ्रेड पूलवर राबवून उत्तम ६०fps कामगिरी सुनिश्चित केली तसेच बूट झाल्यानंतरही टिकणाऱ्या अलार्म मॅनेजर व ब्रॉडकास्ट रिसीव्हरद्वारे बॅकग्राउंड सूचना मिळवल्या.",
-    "Decoupled database I/O using dedicated ExecutorService thread pools to keep design UI perfectly fluid.": "डेटाबेसचे काम पूर्णपणे वेगळे ठेवण्यासाठी आणि युझर इंटरफेस अगदी फ्लुइड राहण्यासाठी स्वतंत्र ExecutorService थ्रेड पूल्सचा अत्यंत प्रभावी वापर.",
     "Assured flawless 60fps screen execution with zero database blockages.": "शून्य डेटाबेस अडथळ्यांसह परिपूर्ण ६०fps स्क्रीन कामगिरी आणि वेगवान कार्यक्षमतेची हमी.",
+    
+    "B.Tech Academic Project": "बी.टेक शैक्षणिक प्रकल्प (B.Tech Academic Project)",
+    "IoT & Embedded Systems": "आयओटी आणि एम्बेडेड सिस्टीम्स (IoT & Embedded Systems)",
+    "Smart Traffic System": "स्मार्ट ट्रॅफिक सिस्टीम (Smart Traffic System)",
+    "An IoT-based intelligent traffic management system that dynamically adjusts signal timings based on real-time traffic density. Built using ESP32 WiFi-enabled microcontroller with IR sensor networks for vehicle detection, automated signal switching, and a remote monitoring dashboard for live traffic analytics.": "रिअल-टाईम वाहतूक घनतेनुसार सिग्नलची वेळ आपोआप नियंत्रित करणारी आयओटी-आधारित वाहतूक व्यवस्थापन प्रणाली. यामध्ये ESP32 मायक्रोकंट्रोलर, IR सेन्सर नेटवर्क आणि थेट वाहतूक माहिती दर्शवणारा डॅशबोर्ड वापरला गेला आहे.",
+    "Smart Hand Gesture Car": "स्मार्ट हँड जेश्चर कार (Smart Hand Gesture Car)",
+    "A wirelessly controlled robotic car that responds to real-time hand gestures via RF communication. The transmitter glove uses MPU6050 accelerometer/gyroscope data to detect tilt gestures, while the receiver car interprets RF signals for precise directional motor control using L298N H-Bridge driver.": "हाताच्या हालचालींवर (जेश्चर) चालणारी वायरलेस रोबोटिक कार. हातातील सेन्सर ग्लोव्ह MPU6050 द्वारे हाताची हालचाल ओळखतो आणि RF कम्युनिकेशनद्वारे कारला अचूक दिशेने चालवतो.",
 
     // Process Steps
     "Requirement Sourcing": "गरजांचे मुल्यांकन आणि संशोधन",

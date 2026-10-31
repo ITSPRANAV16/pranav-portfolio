@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { 
   Sparkles, Code2, Database, Layout, Smartphone, 
   Terminal, Settings, Box, GitBranch, Folder,
-  Search, CheckCircle2, Wand2, Plus, Grip
+  Search, CheckCircle2, Wand2, Plus, Grip, Cpu
 } from 'lucide-react';
 import { OWNER_CONFIG } from '../config/owner';
 import { useLanguage } from '../context/LanguageContext';
@@ -111,6 +111,7 @@ export default function SkillsSection({ id = 'skills' }: { id?: string }) {
             if (cat.name.includes('Android')) IconComponent = Smartphone;
             else if (cat.name.includes('Databases')) IconComponent = Database;
             else if (cat.name.includes('Tools')) IconComponent = Settings;
+            else if (cat.name.includes('IoT')) IconComponent = Cpu;
 
             return (
               <div

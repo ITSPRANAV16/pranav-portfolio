@@ -397,6 +397,52 @@ export default function ProjectsSection({
         col2Tall: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop",
       },
     },
+    {
+      id: "p6",
+      number: "06",
+      category: "B.Tech Academic Project",
+      type: "real",
+      name: "Smart Traffic System",
+      role: "IoT Developer",
+      duration: "2026 - Present",
+      description: "An IoT-based intelligent traffic management system that dynamically adjusts signal timings based on real-time traffic density. Built using ESP32 WiFi-enabled microcontroller with IR sensor networks for vehicle detection, automated signal switching, and a remote monitoring dashboard for live traffic analytics.",
+      techStack: ["ESP8266/ESP32", "IR Sensors", "C/C++ (Embedded)", "Arduino IDE", "WiFi Module"],
+      keyAchievements: [
+        "Engineered real-time traffic density detection using IR sensor arrays with ESP32 interrupt-driven polling for sub-100ms vehicle counting accuracy.",
+        "Implemented adaptive signal timing algorithm that dynamically adjusts green/red phases based on live traffic density ratios across all intersection lanes.",
+        "Built WiFi-enabled remote monitoring dashboard for live traffic flow analytics, sensor status, and historical congestion pattern visualization."
+      ],
+      architectureNotes: ["Designed modular firmware architecture separating sensor polling, signal control, and WiFi communication into independent task loops on ESP32 dual-core processor."],
+      impactMetric: "Reduced average vehicle wait time by 40% compared to fixed-timer traffic signals in simulation tests.",
+      images: {
+        col1Top: "/traffic_system_hero.jpg",
+        col1Bottom: "/traffic_system_dashboard.jpg",
+        col2Tall: "/traffic_system_prototype.jpg",
+      },
+    },
+    {
+      id: "p7",
+      number: "07",
+      category: "B.Tech Academic Project",
+      type: "real",
+      name: "Smart Hand Gesture Car",
+      role: "IoT & Embedded Systems Developer",
+      duration: "2026 - Present",
+      description: "A wirelessly controlled robotic car that responds to real-time hand gestures via RF communication. The transmitter glove uses MPU6050 accelerometer/gyroscope data to detect tilt gestures, while the receiver car interprets RF signals for precise directional motor control using L298N H-Bridge driver.",
+      techStack: ["Arduino", "RF Module (433MHz)", "MPU6050", "L298N Motor Driver", "DC Motors"],
+      keyAchievements: [
+        "Developed custom gesture recognition algorithm mapping MPU6050 accelerometer tilt angles to 5 directional commands (Forward, Backward, Left, Right, Stop) with configurable sensitivity thresholds.",
+        "Implemented reliable wireless RF communication at 433MHz with VirtualWire library encoding, achieving consistent control range up to 100 meters in open-field conditions.",
+        "Engineered smooth PWM-based motor speed control via L298N H-Bridge driver, enabling proportional speed response based on hand tilt angle magnitude."
+      ],
+      architectureNotes: ["Separated system into independent transmitter (glove) and receiver (car) Arduino units communicating via unidirectional RF link with error-checking byte protocol."],
+      impactMetric: "Achieved real-time gesture-to-motion response latency under 50ms with 98% gesture recognition accuracy in controlled testing.",
+      images: {
+        col1Top: "/gesture_car_chassis.jpg",
+        col1Bottom: "/gesture_car_glove.jpg",
+        col2Tall: "/gesture_car_demo.jpg",
+      },
+    },
   ];
 
   const filteredProjects = filter === 'all'

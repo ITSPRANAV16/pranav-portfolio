@@ -106,6 +106,19 @@ const DEFAULT_CONFIG = {
         'Agile Workflow',
         'ADB (Android Debug Bridge)'
       ]
+    },
+    {
+      name: 'IoT & Embedded Systems',
+      skills: [
+        'Arduino',
+        'ESP8266/ESP32',
+        'RF Communication (433MHz)',
+        'Sensor Integration',
+        'C/C++ (Embedded)',
+        'Circuit Design',
+        'Motor Drivers (L298N)',
+        'MPU6050 (Accelerometer/Gyroscope)'
+      ]
     }
   ],
 
