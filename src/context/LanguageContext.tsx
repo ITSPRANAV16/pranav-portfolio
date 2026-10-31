@@ -210,6 +210,31 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     "Public Engagement & Conflict Resolution": "स्पर्धक संवाद आणि वाद निवारण",
     "Acted as primary point of contact for participant queries, ensuring seamless round transitions and an energetic academic debate environment.": "विद्यार्थ्यांच्या शंकांचे निरसन करून स्पर्धेच्या फेऱ्या सुरळीतपणे आणि उत्साही शैक्षणिक वातावरणात पार पाडल्या.",
     "Recognized for organizational excellence and student team leadership as the Lead Coordinator of the Teachers' Day Debate Competition, managing 50+ participants, stage logistics, and jury evaluations.": "५०+ स्पर्धक, स्टेज व्यवस्थापन आणि प्राध्यापक परीक्षकांचे यशस्वी नियोजन करून शिक्षक दिन वादविवाद स्पर्धेचे उत्कृष्ट नेतृत्व केल्याबद्दल सन्मानित.",
+    
+    // Diploma Leadership Roles
+    "Chief Event Coordinator & Lead Software Architect - College Quiz Platform": "मुख्य कार्यक्रम समन्वयक आणि लीड सॉफ्टवेअर आर्किटेक्ट - कॉलेज क्विझ प्लॅटफॉर्म",
+    "Headed the entire departmental quiz competition lifecycle—architecting the real-time examination software platform, managing live server sessions, and directing event operations for 455+ concurrent participants.": "विभागीय क्विझ स्पर्धेचे संपूर्ण संचालन केले—रिअल-टाईम परीक्षा सॉफ्टवेअर विकसित करणे, थेट सर्व्हर नियंत्रित करणे आणि ४५५+ स्पर्धकांच्या स्पर्धेचे मुख्य समन्वयक म्हणून यशस्वी आयोजन केले.",
+    "Real-Time Software Architecture": "रिअल-टाईम सॉफ्टवेअर आर्किटेक्चर",
+    "Engineered responsive full-stack examination portal with dynamic timer synchronization, secure question shuffling, and automated score tabulation.": "डायनॅमिक टायमर सिंक्रोनायझेशन, सुरक्षित प्रश्न शफलिंग आणि स्वयंचलित गुणतालिकेसह पूर्णपणे रिस्पॉन्सिव्ह परीक्षा पोर्टल विकसित केले.",
+    "Live Session & System Control": "थेट सत्र आणि सिस्टीम नियंत्रण",
+    "Controlled administrator dashboard in real time during live competition sessions, ensuring zero latency spikes or system interruptions across 455+ active takers.": "थेट स्पर्धेदरम्यान ॲडमिन डॅशबोर्डवरून प्रश्न प्रसारण आणि सर्व्हर लोड नियंत्रित करून शून्य अडथळ्यांसह परीक्षा सुरळीत पार पाडली.",
+    "Operational Event Leadership": "इव्हेंट व्यवस्थापन आणि संचालन",
+    "Organized multi-hall examination logistics, managed round transitions, and guided technical volunteers for smooth student hardware onboarding.": "अनेक परीक्षा हॉलचे व्यवस्थापन, विविध फेऱ्यांचे नियोजन आणि तांत्रिक स्वयंसेवकांना मार्गदर्शन करून विद्यार्थ्यांना सुलभ अनुभव दिला.",
+    "Jury Coordination & Result Auditing": "परीक्षक समन्वय आणि निकाल पडताळणी",
+    "Coordinated with departmental faculty judges to audit leaderboards and declare transparent winners for the institutional awards ceremony.": "विभागीय प्राध्यापक परीक्षकांशी समन्वय साधून लीडरबोर्डची पडताळणी केली आणि बक्षीस समारंभासाठी पारदर्शक विजेते घोषित केले.",
+
+    "Lead Software Developer & Technical Head - Student Feedback Management System": "लीड सॉफ्टवेअर डेव्हलपर आणि टेक्निकल हेड - स्टुडंट फीडबॅक मॅनेजमेंट सिस्टीम",
+    "Lead Software Developer & Technical Head": "लीड सॉफ्टवेअर डेव्हलपर आणि टेक्निकल हेड",
+    "Chief Event Coordinator & Lead Software Architect": "मुख्य कार्यक्रम समन्वयक आणि लीड सॉफ्टवेअर आर्किटेक्ट",
+    "Spearheaded the technical development and institutional deployment of an end-to-end feedback evaluation portal, directing peer student developers and collaborating with academic heads.": "संस्थात्मक स्तरावरील फीडबॅक मूल्यांकन पोर्टलचा तांत्रिक विकास आणि अंमलबजावणीचे नेतृत्व केले; सहकारी विद्यार्थ्यांचे मार्गदर्शन आणि विभागप्रमुखांशी समन्वय साधला.",
+    "System Architecture & Schema Design": "सिस्टीम आर्किटेक्चर आणि स्कीमा डिझाइन",
+    "Engineered secure relational database schemas, anonymous feedback ingestion pipelines, and administrative reporting APIs.": "सुरक्षित रिलेशनल डेटाबेस स्कीमा, गोपनीय फीडबॅक संकलन प्रणाली आणि प्रशासकीय रिपोर्टिंग APIs तयार केले.",
+    "Developer Team Direction": "डेव्हलपर टीमचे नेतृत्व",
+    "Led a peer student development crew through sprint cycles, assigning modular interface components and reviewing Git pull requests.": "सहकारी विद्यार्थी डेव्हलपर्सच्या टीमचे नेतृत्व करत मॉड्युलर घटकांचे वाटप केले आणि गिट (Git) कोड रिव्ह्यू पार पाडले.",
+    "Faculty Alignment & Requirement Auditing": "प्राध्यापक समन्वय आणि गरजांचे मूल्यांकन",
+    "Conducted requirement discovery sessions with department heads and deans, translating academic compliance policies into intuitive UX feedback forms.": "विभागप्रमुख आणि डीन यांच्याशी चर्चा करून शैक्षणिक नियमांचे रुपांतर सोप्या आणि सुटसुटीत डिजिटल फीडबॅक फॉर्म्समध्ये केले.",
+    "Campus-Wide Rollout & Impact": "संस्थात्मक अंमलबजावणी आणि प्रभाव",
+    "Successfully deployed the platform across college departments, boosting administrative evaluation turnaround and institutional action metrics by 68%.": "सर्व विभागांमध्ये प्रणाली यशस्वीरीत्या राबवून प्रशासकीय मूल्यमापनाचा वेग वाढवला आणि संस्थात्मक प्रतिसाद दर ६८% ने सुधारला.",
 
     // Process Steps
     "Requirement Sourcing": "गरजांचे मुल्यांकन आणि संशोधन",

@@ -99,6 +99,56 @@ const DEFAULT_CONFIG = {
           details: "Acted as primary point of contact for participant queries, ensuring seamless round transitions and an energetic academic debate environment."
         }
       ]
+    },
+    {
+      role: "Chief Event Coordinator & Lead Software Architect - College Quiz Platform",
+      organization: "Nanasaheb Mahadik Polytechnic Institute, Peth",
+      duration: "01/2025 - 03/2025",
+      location: "Peth, Maharashtra, India",
+      description: "Headed the entire departmental quiz competition lifecycle—architecting the real-time examination software platform, managing live server sessions, and directing event operations for 455+ concurrent participants.",
+      modules: [
+        {
+          title: "Real-Time Software Architecture",
+          details: "Engineered responsive full-stack examination portal with dynamic timer synchronization, secure question shuffling, and automated score tabulation."
+        },
+        {
+          title: "Live Session & System Control",
+          details: "Controlled administrator dashboard in real time during live competition sessions, ensuring zero latency spikes or system interruptions across 455+ active takers."
+        },
+        {
+          title: "Operational Event Leadership",
+          details: "Organized multi-hall examination logistics, managed round transitions, and guided technical volunteers for smooth student hardware onboarding."
+        },
+        {
+          title: "Jury Coordination & Result Auditing",
+          details: "Coordinated with departmental faculty judges to audit leaderboards and declare transparent winners for the institutional awards ceremony."
+        }
+      ]
+    },
+    {
+      role: "Lead Software Developer & Technical Head - Student Feedback Management System",
+      organization: "Nanasaheb Mahadik Polytechnic Institute, Peth",
+      duration: "01/2025 - 04/2025",
+      location: "Peth, Maharashtra, India",
+      description: "Spearheaded the technical development and institutional deployment of an end-to-end feedback evaluation portal, directing peer student developers and collaborating with academic heads.",
+      modules: [
+        {
+          title: "System Architecture & Schema Design",
+          details: "Engineered secure relational database schemas, anonymous feedback ingestion pipelines, and administrative reporting APIs."
+        },
+        {
+          title: "Developer Team Direction",
+          details: "Led a peer student development crew through sprint cycles, assigning modular interface components and reviewing Git pull requests."
+        },
+        {
+          title: "Faculty Alignment & Requirement Auditing",
+          details: "Conducted requirement discovery sessions with department heads and deans, translating academic compliance policies into intuitive UX feedback forms."
+        },
+        {
+          title: "Campus-Wide Rollout & Impact",
+          details: "Successfully deployed the platform across college departments, boosting administrative evaluation turnaround and institutional action metrics by 68%."
+        }
+      ]
     }
   ],
 
